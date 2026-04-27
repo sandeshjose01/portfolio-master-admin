@@ -36,7 +36,7 @@ const ImageUploader = ({ image, setImage, label, rounded = false }) => {
 
   return (
     <div className="flex flex-col gap-1 w-full">
-      <label className="text-[10px] uppercase font-bold opacity-50 ml-4 text-white">{label}</label>
+      <label className="text-[10px] uppercase font-bold opacity-100 ml-4 text-white">{label}</label>
       <div 
         className={`border-2 border-dashed ${isDragging ? 'border-blue-500 bg-blue-500/10' : 'border-white/20 bg-white/5'} p-6 flex flex-col items-center justify-center gap-4 transition-all ${rounded ? 'rounded-[3rem] w-48 h-48 mx-auto' : 'rounded-3xl w-full'}`}
         onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
@@ -84,7 +84,7 @@ const MonthYearPicker = ({ label, value, onChange, disabled }) => {
   if (disabled) {
     return (
       <div className="flex flex-col gap-1 w-full">
-        <label className="text-[10px] uppercase font-bold opacity-50 ml-4 text-white">{label}</label>
+        <label className="text-[20px] uppercase font-bold opacity-100 ml-4 text-white">{label}</label>
         <div className="w-full bg-white/5 p-4 rounded-xl text-white/50 cursor-not-allowed">Present</div>
       </div>
     );
@@ -163,14 +163,15 @@ export default function ExperiencePage() {
         <div className="bento-card space-y-8 bg-black/20 p-8 rounded-[2rem] border border-white/10">
           
           <ImageUploader image={logo} setImage={setLogo} label="Company Logo" />
+          <img src={image} alt="Preview" className={`w-full h-full object-cover ${rounded ? 'rounded-full' : 'rounded-xl max-h-32'}`} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
              <div className="flex flex-col gap-1">
-               <label className="text-[10px] uppercase font-bold opacity-50 ml-4 text-white">Company Name</label>
+               <label className="text-[20px] uppercase font-bold opacity-100 ml-4 text-white">Company Name</label>
                <input placeholder="e.g. Google" value={company} onChange={e => setCompany(e.target.value)} className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white placeholder:text-white/30" />
              </div>
              <div className="flex flex-col gap-1">
-               <label className="text-[10px] uppercase font-bold opacity-50 ml-4 text-white">Location</label>
+               <label className="text-[20px] uppercase font-bold opacity-100 ml-4 text-white">Location</label>
                <input placeholder="e.g. San Francisco, CA" value={location} onChange={e => setLocation(e.target.value)} className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white placeholder:text-white/30" />
              </div>
           </div>
@@ -178,7 +179,7 @@ export default function ExperiencePage() {
           <div className="space-y-6">
             {roles.map((r, i) => (
               <div key={i} className="p-6 bg-white/5 rounded-3xl border border-white/10 space-y-6 relative">
-                <p className="text-blue-400 font-bold text-[10px] uppercase tracking-widest bg-blue-500/10 inline-block px-3 py-1 rounded-full">Role #{i+1}</p>
+                <p className="text-blue-400 font-bold text-[20px] uppercase tracking-widest bg-blue-500/10 inline-block px-3 py-1 rounded-full">Role #{i+1}</p>
                 
                 <div className="flex flex-col gap-1">
                   <label className="text-[10px] uppercase font-bold opacity-50 ml-4 text-white">Job Title</label>
@@ -227,17 +228,17 @@ export default function ExperiencePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
              <div className="flex flex-col gap-1">
-               <label className="text-[10px] uppercase font-bold opacity-50 ml-4 text-white">Recommender's Name</label>
+               <label className="text-[20px] uppercase font-bold opacity-100 ml-4 text-white">Recommender's Name</label>
                <input placeholder="e.g. Jane Doe" value={recName} onChange={e => setRecName(e.target.value)} className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white placeholder:text-white/30" />
              </div>
              <div className="flex flex-col gap-1">
-               <label className="text-[10px] uppercase font-bold opacity-50 ml-4 text-white">Recommender's Role / Company</label>
+               <label className="text-[20px] uppercase font-bold opacity-100 ml-4 text-white">Recommender's Role / Company</label>
                <input placeholder="e.g. CTO at TechCorp" value={recRole} onChange={e => setRecRole(e.target.value)} className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white placeholder:text-white/30" />
              </div>
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-[10px] uppercase font-bold opacity-50 ml-4 text-white">Recommendation Text (New lines become separated paragraphs)</label>
+            <label className="text-[20px] uppercase font-bold opacity-100 ml-4 text-white">Recommendation Text (New lines become separated paragraphs)</label>
             <textarea 
               placeholder="What did they say about you?&#10;&#10;Leave empty line breaks to separate paragraphs beautifully in your portfolio." 
               value={recText} 
@@ -246,7 +247,7 @@ export default function ExperiencePage() {
             />
           </div>
 
-          <button onClick={handleSaveRecommendation} className="w-full bg-green-600 hover:bg-green-500 transition-colors py-6 rounded-3xl font-black uppercase text-sm tracking-widest text-white shadow-lg shadow-green-500/20">Deploy Recommendation</button>
+          <button onClick={handleSaveRecommendation} className="w-full bg-accent-blue-600 hover:bg-accent-blue-500 transition-colors py-6 rounded-3xl font-black uppercase text-sm tracking-widest text-white shadow-lg shadow-green-500/20">Deploy Recommendation</button>
         </div>
       </section>
 
