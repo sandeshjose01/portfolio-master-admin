@@ -41,7 +41,7 @@ const ImageSquareUploader = ({ image, setImage, label }) => {
           {image ? (
             <img src={image} alt="Preview" className="w-full h-full object-cover" />
           ) : (
-            <div className="text-[20px] text-center px-4 text-white opacity-60 uppercase font-bold">
+            <div className="text-[20px] text-center px-4 text-white opacity-50 uppercase font-bold">
               {loading ? "Uploading..." : "Drag Image Here"}
             </div>
           )}
@@ -73,14 +73,14 @@ const MonthYearPicker = ({ label, value, onChange, disabled }) => {
 
   if (disabled) return (
     <div className="w-full space-y-1">
-      <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">{label}</label>
+      <label className="text-[15px] uppercase font-bold text-white opacity-100 ml-4">{label}</label>
       <div className="w-full bg-white/5 border border-white/5 p-4 rounded-xl text-white/30 font-bold">Present</div>
     </div>
   );
 
   return (
     <div className="w-full space-y-1">
-      <label className="text-[200px] uppercase font-bold text-white opacity-100 ml-4">{label}</label>
+      <label className="text-[15x] uppercase font-bold text-white opacity-100 ml-4">{label}</label>
       <div className="grid grid-cols-2 gap-2">
         <select value={m} onChange={(e) => onChange(`${e.target.value} ${y || years[0]}`)} className="bg-[#1a1a1a] text-white p-4 rounded-xl outline-none border border-white/10 appearance-none cursor-pointer">
           <option value="">Month</option>
@@ -131,11 +131,11 @@ export default function ExperiencePage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-1">
-              <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">Company Name</label>
+              <label className="text-[15px] uppercase font-bold text-white opacity-100 ml-4">Company Name</label>
               <input value={company} onChange={e => setCompany(e.target.value)} className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white border border-white/5 focus:border-blue-500/50" placeholder="e.g. Meta" />
             </div>
             <div className="space-y-1">
-              <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">Location</label>
+              <label className="text-[15px] uppercase font-bold text-white opacity-100 ml-4">Location</label>
               <input value={location} onChange={e => setLocation(e.target.value)} className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white border border-white/5 focus:border-blue-500/50" placeholder="e.g. New York, NY" />
             </div>
           </div>
@@ -152,7 +152,7 @@ export default function ExperiencePage() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">Job Title</label>
+                  <label className="text-[15px] uppercase font-bold text-white opacity-100 ml-4">Job Title</label>
                   <input value={r.title} onChange={e => { const n = [...roles]; n[i].title = e.target.value; setRoles(n); }} className="w-full bg-white/10 p-4 rounded-xl outline-none text-white" placeholder="Product Designer" />
                 </div>
 
@@ -160,7 +160,7 @@ export default function ExperiencePage() {
                   <MonthYearPicker label="Start Date" value={r.startDate} onChange={val => { const n = [...roles]; n[i].startDate = val; setRoles(n); }} />
                   <MonthYearPicker label="End Date" value={r.endDate} disabled={r.isCurrent} onChange={val => { const n = [...roles]; n[i].endDate = val; setRoles(n); }} />
                   <div className="space-y-1">
-                    <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">Work Type</label>
+                    <label className="text-[15px] uppercase font-bold text-white opacity-100 ml-4">Work Type</label>
                     <select value={r.workType} onChange={e => { const n = [...roles]; n[i].workType = e.target.value; setRoles(n); }} className="w-full bg-[#1a1a1a] border border-white/10 text-white p-4 rounded-xl outline-none appearance-none">
                       <option>On-site</option><option>Remote</option><option>Hybrid</option>
                     </select>
@@ -168,7 +168,7 @@ export default function ExperiencePage() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">Role Description</label>
+                  <label className="text-[15px] uppercase font-bold text-white opacity-100 ml-4">Role Description</label>
                   <textarea value={r.description} onChange={e => { const n = [...roles]; n[i].description = e.target.value; setRoles(n); }} className="w-full bg-white/5 p-4 rounded-xl outline-none text-white h-32 resize-none" placeholder="Use new lines for bullet points..." />
                 </div>
               </div>
