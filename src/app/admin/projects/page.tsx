@@ -155,12 +155,12 @@ export default function AdminProjectsPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         {/* LEFT: IMAGE UPLOAD */}
-        <div className="bg-white/5 border border-white/10 p-8 rounded-[4rem] sticky top-12 space-y-6 text-center">
+        <div className="bg-white/5 border border-white/10 p-8 rounded-[2rem] sticky top-12 space-y-6 text-center">
             <label className="text-[12px] uppercase font-bold tracking-widest text-white block opacity-50">Visual Assets</label>
             <div 
               onDragOver={(e) => e.preventDefault()}
               onDrop={(e) => { e.preventDefault(); handleFile(e.dataTransfer.files[0]); }}
-              className="w-full aspect-square bg-black/40 rounded-[3.5rem] border-2 border-dashed border-white/10 overflow-hidden flex items-center justify-center relative cursor-pointer"
+              className="w-full aspect-square bg-black/40 rounded-[1.5rem] border-2 border-dashed border-white/10 overflow-hidden flex items-center justify-center relative cursor-pointer"
             >
               {projectImg ? (
                 <img src={projectImg} alt="Preview" className="w-full h-full object-cover" />
@@ -169,7 +169,7 @@ export default function AdminProjectsPage() {
               )}
               <input type="file" className="absolute inset-0 opacity-0 cursor-pointer" onChange={(e) => e.target.files && handleFile(e.target.files[0])} />
             </div>
-            <input value={projectImg} onChange={e => setProjectImg(e.target.value)} placeholder="Or paste custom URL" className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white text-xs border border-white/5 text-center" />
+            <input value={projectImg} onChange={e => setProjectImg(e.target.value)} placeholder="Or paste custom URL" className="w-full bg-white/5 p-4 rounded-xl outline-none text-white text-xs border border-white/5 text-center" />
         </div>
 
         {/* RIGHT: CONFIGURATION */}
@@ -177,7 +177,7 @@ export default function AdminProjectsPage() {
             <div className="grid grid-cols-1 gap-6 bg-white/[0.03] p-8 md:p-10 border border-white/10 rounded-[2rem]">
                 <div className="space-y-1">
                     <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50 tracking-widest">Project Name</label>
-                    <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Nexus UI Design..." className="w-full bg-white/5 p-5 rounded-[2rem] outline-none text-white border border-white/10 focus:border-blue-500 text-lg font-bold" />
+                    <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Nexus UI Design..." className="w-full bg-white/5 p-5 rounded-[1rem] outline-none text-white border border-white/10 focus:border-blue-500 text-lg font-bold" />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
