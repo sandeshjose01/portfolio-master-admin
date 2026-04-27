@@ -28,7 +28,7 @@ const ImageSquareUploader = ({ image, setImage, label }) => {
 
   return (
     <div className="flex flex-col gap-3">
-      <label className="text-[11px] uppercase font-bold tracking-widest text-white ml-1 opacity-80">{label}</label>
+      <label className="text-[11px] uppercase font-bold tracking-widest text-white ml-1 opacity-100">{label}</label>
       <div className="flex flex-col md:flex-row gap-4 items-start">
         {/* Square Preview / Drop Zone */}
         <div 
@@ -41,7 +41,7 @@ const ImageSquareUploader = ({ image, setImage, label }) => {
           {image ? (
             <img src={image} alt="Preview" className="w-full h-full object-cover" />
           ) : (
-            <div className="text-[10px] text-center px-4 text-white opacity-40 uppercase font-bold">
+            <div className="text-[20px] text-center px-4 text-white opacity-60 uppercase font-bold">
               {loading ? "Uploading..." : "Drag Image Here"}
             </div>
           )}
@@ -73,14 +73,14 @@ const MonthYearPicker = ({ label, value, onChange, disabled }) => {
 
   if (disabled) return (
     <div className="w-full space-y-1">
-      <label className="text-[10px] uppercase font-bold text-white opacity-50 ml-4">{label}</label>
+      <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">{label}</label>
       <div className="w-full bg-white/5 border border-white/5 p-4 rounded-xl text-white/30 font-bold">Present</div>
     </div>
   );
 
   return (
     <div className="w-full space-y-1">
-      <label className="text-[10px] uppercase font-bold text-white opacity-50 ml-4">{label}</label>
+      <label className="text-[200px] uppercase font-bold text-white opacity-100 ml-4">{label}</label>
       <div className="grid grid-cols-2 gap-2">
         <select value={m} onChange={(e) => onChange(`${e.target.value} ${y || years[0]}`)} className="bg-[#1a1a1a] text-white p-4 rounded-xl outline-none border border-white/10 appearance-none cursor-pointer">
           <option value="">Month</option>
@@ -131,11 +131,11 @@ export default function ExperiencePage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-1">
-              <label className="text-[10px] uppercase font-bold text-white opacity-50 ml-4">Company Name</label>
+              <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">Company Name</label>
               <input value={company} onChange={e => setCompany(e.target.value)} className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white border border-white/5 focus:border-blue-500/50" placeholder="e.g. Meta" />
             </div>
             <div className="space-y-1">
-              <label className="text-[10px] uppercase font-bold text-white opacity-50 ml-4">Location</label>
+              <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">Location</label>
               <input value={location} onChange={e => setLocation(e.target.value)} className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white border border-white/5 focus:border-blue-500/50" placeholder="e.g. New York, NY" />
             </div>
           </div>
@@ -152,7 +152,7 @@ export default function ExperiencePage() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[10px] uppercase font-bold text-white opacity-50 ml-4">Job Title</label>
+                  <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">Job Title</label>
                   <input value={r.title} onChange={e => { const n = [...roles]; n[i].title = e.target.value; setRoles(n); }} className="w-full bg-white/10 p-4 rounded-xl outline-none text-white" placeholder="Product Designer" />
                 </div>
 
@@ -160,7 +160,7 @@ export default function ExperiencePage() {
                   <MonthYearPicker label="Start Date" value={r.startDate} onChange={val => { const n = [...roles]; n[i].startDate = val; setRoles(n); }} />
                   <MonthYearPicker label="End Date" value={r.endDate} disabled={r.isCurrent} onChange={val => { const n = [...roles]; n[i].endDate = val; setRoles(n); }} />
                   <div className="space-y-1">
-                    <label className="text-[10px] uppercase font-bold text-white opacity-50 ml-4">Work Type</label>
+                    <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">Work Type</label>
                     <select value={r.workType} onChange={e => { const n = [...roles]; n[i].workType = e.target.value; setRoles(n); }} className="w-full bg-[#1a1a1a] border border-white/10 text-white p-4 rounded-xl outline-none appearance-none">
                       <option>On-site</option><option>Remote</option><option>Hybrid</option>
                     </select>
@@ -168,7 +168,7 @@ export default function ExperiencePage() {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[10px] uppercase font-bold text-white opacity-50 ml-4">Role Description</label>
+                  <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">Role Description</label>
                   <textarea value={r.description} onChange={e => { const n = [...roles]; n[i].description = e.target.value; setRoles(n); }} className="w-full bg-white/5 p-4 rounded-xl outline-none text-white h-32 resize-none" placeholder="Use new lines for bullet points..." />
                 </div>
               </div>
@@ -181,23 +181,23 @@ export default function ExperiencePage() {
 
       {/* RECOMMENDATIONS SECTION */}
       <div className="space-y-10 pt-10 border-t border-white/10">
-        <h2 className="text-7xl font-black tracking-tighter text-white opacity-40 italic">Recommendations</h2>
+        <h2 className="text-7xl font-black tracking-tighter text-white opacity-100 italic">Recommendations</h2>
         <div className="bg-white/[0.03] border border-white/10 rounded-[3rem] p-10 space-y-8">
           <ImageSquareUploader label="Recommender Image (Square)" image={recImage} setImage={setRecImage} />
           
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-1">
-              <label className="text-[10px] uppercase font-bold text-white opacity-50 ml-4">Recommender Name</label>
+              <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">Recommender Name</label>
               <input value={recName} onChange={e => setRecName(e.target.value)} className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white border border-white/5" placeholder="John Smith" />
             </div>
             <div className="space-y-1">
-              <label className="text-[10px] uppercase font-bold text-white opacity-50 ml-4">Position / Relationship</label>
+              <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">Position / Relationship</label>
               <input value={recRole} onChange={e => setRecRole(e.target.value)} className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white border border-white/5" placeholder="Engineering Manager at Google" />
             </div>
           </div>
 
           <div className="space-y-1">
-            <label className="text-[10px] uppercase font-bold text-white opacity-50 ml-4">What they said about you</label>
+            <label className="text-[20px] uppercase font-bold text-white opacity-100 ml-4">What they said about you</label>
             <textarea value={recText} onChange={e => setRecText(e.target.value)} className="w-full bg-white/5 p-6 rounded-[2rem] outline-none text-white h-48 border border-white/5 resize-none leading-relaxed" placeholder="Write the recommendation here..." />
           </div>
 
