@@ -1,4 +1,4 @@
-lo"use client";
+"use client";
 import React, { useState } from "react";
 import { db, CLOUDINARY_URL, CLOUDINARY_PRESET } from "@/lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
