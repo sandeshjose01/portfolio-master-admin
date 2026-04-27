@@ -183,14 +183,14 @@ export default function AdminProjectsPage() {
                 <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-1">
                         <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Category</label>
-                        <select value={category} onChange={e => handleCategoryChange(e.target.value as any)} className="w-full bg-zinc-900 p-4 rounded-2xl outline-none text-white border border-white/10">
+                        <select value={category} onChange={e => handleCategoryChange(e.target.value as any)} className="w-full bg-zinc-900 p-4 rounded-[1rem] outline-none text-white border border-white/10">
                             <option value="">Select Category</option>
                             {Object.keys(CATEGORY_MAP).map(cat => <option key={cat} value={cat}>{cat}</option>)}
                         </select>
                     </div>
                     <div className="space-y-1">
                         <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Subcategory</label>
-                        <select value={subCategory} onChange={e => setSubCategory(e.target.value)} disabled={!category} className="w-full bg-zinc-900 p-4 rounded-2xl outline-none text-white border border-white/10 disabled:opacity-20">
+                        <select value={subCategory} onChange={e => setSubCategory(e.target.value)} disabled={!category} className="w-full bg-zinc-900 p-4 rounded-[1rem] outline-none text-white border border-white/10 disabled:opacity-20">
                             <option value="">Select Sub</option>
                             {category && CATEGORY_MAP[category].subcategories.map(sub => <option key={sub} value={sub}>{sub}</option>)}
                         </select>
@@ -199,15 +199,15 @@ export default function AdminProjectsPage() {
 
                 <div className="space-y-1">
                     <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Tags (Comma Separated)</label>
-                    <input value={tags} onChange={e => setTags(e.target.value)} placeholder="Web, Art, AI..." className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white border border-white/10" />
+                    <input value={tags} onChange={e => setTags(e.target.value)} placeholder="Web, Art, AI..." className="w-full bg-white/5 p-4 rounded-[1rem] outline-none text-white border border-white/10" />
                 </div>
 
                 <div className="space-y-1">
                     <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Process & Features (Sentence Auto-Separator)</label>
-                    <textarea value={description} onChange={e => setDescription(e.target.value)} className="w-full bg-white/5 p-6 rounded-[2.5rem] outline-none text-white h-32 border border-white/10" placeholder="Type sentence 1. Type sentence 2..." />
+                    <textarea value={description} onChange={e => setDescription(e.target.value)} className="w-full bg-white/5 p-6 rounded-[1rem] outline-none text-white h-32 border border-white/10" placeholder="Type sentence 1. Type sentence 2..." />
                 </div>
 
-                <button onClick={handleSave} disabled={loading} className="w-full bg-white text-black py-8 rounded-[2.5rem] font-black uppercase text-xs tracking-[0.4em] hover:scale-95 transition-all">
+                <button onClick={handleSave} disabled={loading} className="w-full bg-white text-black py-8 rounded-[1rem] font-black uppercase text-xs tracking-[0.4em] hover:scale-95 transition-all">
                   {editingId ? "Update Project" : "Deploy Project"}
                 </button>
             </div>
@@ -223,14 +223,14 @@ export default function AdminProjectsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
              {projects.map((p, idx) => (
-                <div key={p.id} className="group relative bg-white/[0.03] border border-white/5 rounded-[3rem] p-6 hover:bg-white/[0.06] transition-all flex flex-col gap-4">
+                <div key={p.id} className="group relative bg-white/[0.03] border border-white/5 rounded-[1rem] p-6 hover:bg-white/[0.06] transition-all flex flex-col gap-4">
                     {/* Move Icons */}
                     <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all">
                        <button onClick={() => moveProject(idx, 'up')} className="p-2 bg-white/5 rounded-full hover:bg-white text-white hover:text-black transition-colors"><ArrowUp size={14}/></button>
                        <button onClick={() => moveProject(idx, 'down')} className="p-2 bg-white/5 rounded-full hover:bg-white text-white hover:text-black transition-colors"><ArrowDown size={14}/></button>
                     </div>
 
-                    <img src={p.image} className="w-full aspect-[4/3] object-cover rounded-[2rem]" />
+                    <img src={p.image} className="w-full aspect-[4/3] object-cover rounded-[1rem]" />
                     <div>
                         <p className="text-[9px] uppercase font-bold tracking-[0.2em] text-blue-500 mb-1">{p.category} // {p.subCategory}</p>
                         <h3 className="text-xl font-bold tracking-tight text-white line-clamp-1">{p.title}</h3>
