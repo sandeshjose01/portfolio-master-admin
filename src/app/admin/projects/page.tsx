@@ -149,7 +149,7 @@ export default function AdminProjectsPage() {
   return (
     <div className="max-w-6xl mx-auto py-20 px-6 space-y-24">
       <div className="flex justify-between items-end">
-        <h1 className="text-7xl font-black tracking-tighter text-white">Project<br/>Studio</h1>
+        <h1 className="text-7xl font-black tracking-tighter text-white">Project Studio</h1>
         {editingId && <button onClick={resetForm} className="bg-red-500/10 text-red-500 px-6 py-2 rounded-full font-bold uppercase text-[10px] tracking-widest border border-red-500/20">Cancel Editing</button>}
       </div>
 
@@ -174,7 +174,7 @@ export default function AdminProjectsPage() {
 
         {/* RIGHT: CONFIGURATION */}
         <div className="space-y-6">
-            <div className="grid grid-cols-1 gap-6 bg-white/[0.03] p-8 md:p-10 border border-white/10 rounded-[4rem]">
+            <div className="grid grid-cols-1 gap-6 bg-white/[0.03] p-8 md:p-10 border border-white/10 rounded-[2rem]">
                 <div className="space-y-1">
                     <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50 tracking-widest">Project Name</label>
                     <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Nexus UI Design..." className="w-full bg-white/5 p-5 rounded-[2rem] outline-none text-white border border-white/10 focus:border-blue-500 text-lg font-bold" />
@@ -217,7 +217,7 @@ export default function AdminProjectsPage() {
       {/* --- PREVIOUSLY UPLOADED PROJECTS --- */}
       <div className="space-y-12">
           <div className="flex justify-between items-end">
-            <h2 className="text-5xl font-black tracking-tighter opacity-30 italic uppercase">Archives</h2>
+            <h2 className="text-5xl font-black tracking-tighter opacity-1000 uppercase">Archives</h2>
             <p className="text-[10px] uppercase font-bold opacity-30">{projects.length} Total Deployed</p>
           </div>
 
