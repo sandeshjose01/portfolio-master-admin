@@ -1,13 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // This tells Vercel to handle the modern code in Firebase and its helpers
-  transpilePackages: ['firebase', '@firebase', 'undici'],
+  // This tells Next.js to handle the modern code in these specific packages
+  transpilePackages: ['undici', 'firebase', '@firebase'],
   
-  // This improves build stability
   typescript: {
+    // This prevents small typing errors from stopping your build
     ignoreBuildErrors: true,
   },
   eslint: {
+    // This prevents styling warnings from stopping your build
     ignoreDuringBuilds: true,
   },
 };
