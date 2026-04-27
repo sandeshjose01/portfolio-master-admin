@@ -1,15 +1,72 @@
-// Project path: src/app/admin/projects/page.tsx
-
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { db, CLOUDINARY_URL, CLOUDINARY_PRESET } from "@/lib/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs, query, orderBy, doc, updateDoc, deleteDoc, setDoc } from "firebase/firestore";
+import { Trash2, Edit3, ArrowUp, ArrowDown, Save, X } from "lucide-react";
 
-// --- Big Square Image Uploader (Shared Layout with Experience but Big Preview) ---
-const ProjectImageUploader = ({ image, setImage, label }: { image: string, setImage: (val: string) => void, label: string }) => {
-  const [isDragging, setIsDragging] = useState(false);
+// --- Data Map for Categories and Subcategories ---
+const CATEGORY_MAP = {
+  "Personal Project": {
+    description: "Logo Design, Photo Manipulation, Typography Choices.",
+    subcategories: ["Social Media Posts", "Logo Design", "Photo Manipulation", "Conceptual Rebrands", "Speculative UI/UX (Concept Apps)", "Artistic & Experimental Design"],
+  },
+  "Brand Identity": {
+    description: "Logo Design, Typography Choices, Brand Color Palettes",
+    subcategories: ["Logo Design", "Typography", "Brand Color Palettes", "Corporate Stationery", "Brand Guidelines (Style Guides)", "Iconography & Graphic Devices"],
+  },
+  "UI/UX Design": {
+    description: "Website landing pages, mobile app interfaces",
+    subcategories: ["Website Landing Pages", "Mobile App Interfaces", "Portfolio Designs", "Wireframing"],
+  },
+  "Social Media Post": {
+    description: "Instagram grids, ad banners, and posts",
+    subcategories: ["Facebook Post", "Instagram Post", "LinkedIn Post & Carousel", "Carousel Design", "Ad Banners", "Email Templates"],
+  },
+  "Print Media": {
+    description: "Flex designs, Calendars, brochures, posters",
+    subcategories: ["Brand Guide", "Stationery Suite", "Flex Designs", "Calendars", "Brochures", "Event Posters"],
+  },
+  "Motion": {
+    description: "Product Video, Documentary Video and Advertisnment Video",
+    subcategories: ["Brand Documentary", "Product Informational", "Micro-Storytelling"],
+  },
+};
+
+export default function AdminProjectsPage() {
+  // Form State
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState<keyof typeof CATEGORY_MAP | "">("");
+  const [subCategory, setSubCategory] = useState("");
+  const [tags, setTags] = useState("");
+  const [demoLink, setDemoLink] = useState("");
+  const [githubLink, setGithubLink] = useState("");
+  const [date, setDate] = useState("");
+  const [projectImg, setProjectImg] = useState("");
+  const [description, setDescription] = useState("");
+  
+  // Database State
+  const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
+  // --- Fetch Projects ---
+  const fetchProjects = async () => {
+    const q = query(collection(db, "projects"), orderBy("order", "asc"));
+    const querySnapshot = await getDocs(q);
+    const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    setProjects(data);
+  };
+
+  useEffect(() => { fetchProjects(); }, []);
+
+  // --- Category Change Handler ---
+  const handleCategoryChange = (val: keyof typeof CATEGORY_MAP) => {
+    setCategory(val);
+    setSubCategory(""); // Reset subcat
+    setDescription(CATEGORY_MAP[val].description); // Auto-fill standard description
+  };
+
+  // --- Image Upload Logic ---
   const handleFile = async (file: File) => {
     if (!file) return;
     setLoading(true);
@@ -19,192 +76,177 @@ const ProjectImageUploader = ({ image, setImage, label }: { image: string, setIm
     try {
       const res = await fetch(CLOUDINARY_URL, { method: "POST", body: formData });
       const data = await res.json();
-      setImage(data.secure_url);
-    } catch (err) {
-      console.error("Upload failed", err);
-      alert("Image upload failed.");
-    } finally {
-      setLoading(false);
+      setProjectImg(data.secure_url);
+    } catch (err) { alert("Upload failed"); } finally { setLoading(false); }
+  };
+
+  // --- Save / Update Project ---
+  const handleSave = async () => {
+    if (!title || !category || !projectImg) return alert("Fill mandatory fields (Title, Category, Image)");
+
+    const descArray = description.split(/\n|\.(?=\s|$)/).map(l => l.trim()).filter(l => l.length > 0);
+    const tagsArray = tags.split(",").map(t => t.trim()).filter(t => t !== "");
+
+    const projectData = {
+      title, category, subCategory, tags: tagsArray, demoLink, githubLink, date,
+      image: projectImg, description: descArray, 
+      order: editingId ? projects.find(p => p.id === editingId).order : projects.length + 1,
+      updatedAt: new Date()
+    };
+
+    if (editingId) {
+      await updateDoc(doc(db, "projects", editingId), projectData);
+      alert("Project Updated!");
+    } else {
+      await addDoc(collection(db, "projects"), { ...projectData, createdAt: new Date() });
+      alert("New Project Deployed!");
+    }
+    resetForm();
+    fetchProjects();
+  };
+
+  const resetForm = () => {
+    setEditingId(null); setTitle(""); setCategory(""); setSubCategory(""); setTags(""); setDemoLink(""); setGithubLink(""); setDate(""); setProjectImg(""); setDescription("");
+  };
+
+  // --- Edit Project ---
+  const startEdit = (p: any) => {
+    setEditingId(p.id);
+    setTitle(p.title);
+    setCategory(p.category);
+    setSubCategory(p.subCategory);
+    setTags(p.tags.join(", "));
+    setDemoLink(p.demoLink);
+    setGithubLink(p.githubLink);
+    setDate(p.date);
+    setProjectImg(p.image);
+    setDescription(Array.isArray(p.description) ? p.description.join(". ") : p.description);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // --- Delete ---
+  const handleDelete = async (id: string) => {
+    if (confirm("Delete forever?")) {
+      await deleteDoc(doc(db, "projects", id));
+      fetchProjects();
     }
   };
 
-  return (
-    <div className="flex flex-col gap-4">
-      <label className="text-[12px] uppercase font-bold tracking-[0.2em] text-white ml-1 opacity-100">{label}</label>
-      <div className="flex flex-col gap-6">
-        {/* BIG Square Preview / Drop Zone */}
-        <div 
-          onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
-          onDragLeave={() => setIsDragging(false)}
-          onDrop={(e) => { e.preventDefault(); setIsDragging(false); if(e.dataTransfer.files) handleFile(e.dataTransfer.files[0]); }}
-          className={`relative group w-full aspect-square max-w-[450px] mx-auto rounded-[3.5rem] border-2 border-dashed flex-shrink-0 transition-all flex items-center justify-center overflow-hidden
-            ${isDragging ? 'border-blue-500 bg-blue-500/10' : 'border-white/10 bg-white/5 hover:border-white/20'}`}
-        >
-          {image ? (
-            <img src={image} alt="Project Preview" className="w-full h-full object-cover" />
-          ) : (
-            <div className="text-center p-8 space-y-4">
-               <div className="text-4xl opacity-20 text-white">🖼️</div>
-               <div className="text-[12px] text-center px-4 text-white opacity-50 uppercase font-bold tracking-widest">
-                {loading ? "Uploading to Cloud..." : "Drag Project Shot Here"}
-              </div>
-            </div>
-          )}
-          <input type="file" className="absolute inset-0 opacity-0 cursor-pointer" onChange={(e) => { if(e.target.files) handleFile(e.target.files[0]); }} />
-        </div>
-
-        {/* URL Input Area */}
-        <div className="flex-1 w-full space-y-2">
-          <p className="text-[12px] text-white/40 font-bold uppercase ml-2">Or Paste Live Project Image URL</p>
-          <input 
-            type="text" 
-            placeholder="https://example.com/project-screenshot.png" 
-            value={image} 
-            onChange={(e) => setImage(e.target.value)} 
-            className="w-full bg-white/5 border border-white/10 p-5 rounded-[2rem] outline-none text-white text-sm placeholder:text-white/20 focus:border-blue-500/50 transition-all"
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// --- LinkedIn Style Modern Date Picker ---
-const ProjectMonthYearPicker = ({ label, value, onChange }: { label: string, value: string, onChange: (val: string) => void }) => {
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  const years = Array.from({ length: 25 }, (_, i) => new Date().getFullYear() - i);
-  const [m, y] = value ? value.split(" ") : ["", ""];
-
-  return (
-    <div className="w-full space-y-1">
-      <label className="text-[12px] uppercase font-bold text-white opacity-100 ml-4">{label}</label>
-      <div className="grid grid-cols-2 gap-3">
-        <select value={m} onChange={(e) => onChange(`${e.target.value} ${y || years[0]}`)} className="bg-[#1a1a1a] text-white p-4 rounded-2xl outline-none border border-white/10 appearance-none cursor-pointer">
-          <option value="">Month</option>
-          {months.map(mon => <option key={mon} value={mon}>{mon}</option>)}
-        </select>
-        <select value={y} onChange={(e) => onChange(`${m || "January"} ${e.target.value}`)} className="bg-[#1a1a1a] text-white p-4 rounded-2xl outline-none border border-white/10 appearance-none cursor-pointer">
-          <option value="">Year</option>
-          {years.map(yr => <option key={yr} value={yr}>{yr}</option>)}
-        </select>
-      </div>
-    </div>
-  );
-};
-
-export default function AdminProjectsPage() {
-  const [title, setTitle] = useState("");
-  const [demoLink, setDemoLink] = useState("");
-  const [githubLink, setGithubLink] = useState("");
-  const [techStack, setTechStack] = useState("");
-  const [date, setDate] = useState("");
-  const [projectImg, setProjectImg] = useState("");
-  const [description, setDescription] = useState("");
-
-  const handleSave = async () => {
-    if(!title || !projectImg) return alert("Title and Image are required.");
-
-    // Process Tech Stack: Comma separated string to array
-    const techArray = techStack.split(",").map(t => t.trim()).filter(t => t !== "");
+  // --- Rearrange Order ---
+  const moveProject = async (index: number, direction: 'up' | 'down') => {
+    if ((direction === 'up' && index === 0) || (direction === 'down' && index === projects.length - 1)) return;
+    const newProjects = [...projects];
+    const swapIdx = direction === 'up' ? index - 1 : index + 1;
+    [newProjects[index], newProjects[swapIdx]] = [newProjects[swapIdx], newProjects[index]];
     
-    // Process Description: Every sentence or new line becomes a bullet point
-    const descArray = description.split(/\n|\.(?=\s|$)/).map(l => l.trim()).filter(l => l.length > 0);
-
-    await addDoc(collection(db, "projects"), {
-      title,
-      demoLink,
-      githubLink,
-      techStack: techArray,
-      date,
-      image: projectImg,
-      description: descArray,
-      createdAt: new Date(),
-      order: Date.now()
-    });
-
-    alert("Project Deployed to Portfolio!");
-    window.location.reload();
+    // Batch update order in Firestore
+    for (let i = 0; i < newProjects.length; i++) {
+        await updateDoc(doc(db, "projects", newProjects[i].id), { order: i });
+    }
+    fetchProjects();
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-20 px-6 space-y-16">
-      <h1 className="text-7xl font-black tracking-tighter text-white">Projects</h1>
+    <div className="max-w-6xl mx-auto py-20 px-6 space-y-24">
+      <div className="flex justify-between items-end">
+        <h1 className="text-7xl font-black tracking-tighter text-white">Project<br/>Studio</h1>
+        {editingId && <button onClick={resetForm} className="bg-red-500/10 text-red-500 px-6 py-2 rounded-full font-bold uppercase text-[10px] tracking-widest border border-red-500/20">Cancel Editing</button>}
+      </div>
 
-      {/* Bento Main Form */}
-      <div className="bg-white/[0.03] border border-white/10 rounded-[4rem] p-10 md:p-14 space-y-12">
-        
-        {/* Section 1: Image (Big Preview) */}
-        <ProjectImageUploader 
-          label="Project Cover Artwork" 
-          image={projectImg} 
-          setImage={setProjectImg} 
-        />
-
-        {/* Section 2: Core Details */}
-        <div className="grid grid-cols-1 gap-8 pt-4">
-          
-          <div className="space-y-1">
-            <label className="text-[12px] uppercase font-bold text-white ml-4">Project Title</label>
-            <input 
-              value={title} 
-              onChange={e => setTitle(e.target.value)}
-              placeholder="e.g. AI Portfolio Dashboard"
-              className="w-full bg-white/5 p-6 rounded-[2rem] outline-none text-white border border-white/5 focus:border-blue-500/50 text-xl font-bold"
-            />
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-1">
-              <label className="text-[12px] uppercase font-bold text-white ml-4">Live Link</label>
-              <input 
-                value={demoLink} 
-                onChange={e => setDemoLink(e.target.value)}
-                placeholder="https://live-demo.com"
-                className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white border border-white/5"
-              />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        {/* LEFT: IMAGE UPLOAD */}
+        <div className="bg-white/5 border border-white/10 p-8 rounded-[4rem] sticky top-12 space-y-6 text-center">
+            <label className="text-[12px] uppercase font-bold tracking-widest text-white block opacity-50">Visual Assets</label>
+            <div 
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => { e.preventDefault(); handleFile(e.dataTransfer.files[0]); }}
+              className="w-full aspect-square bg-black/40 rounded-[3.5rem] border-2 border-dashed border-white/10 overflow-hidden flex items-center justify-center relative cursor-pointer"
+            >
+              {projectImg ? (
+                <img src={projectImg} alt="Preview" className="w-full h-full object-cover" />
+              ) : (
+                <p className="text-xs text-white opacity-20 uppercase font-black px-12">Drag Showcase Image or Browser</p>
+              )}
+              <input type="file" className="absolute inset-0 opacity-0 cursor-pointer" onChange={(e) => e.target.files && handleFile(e.target.files[0])} />
             </div>
-            <div className="space-y-1">
-              <label className="text-[12px] uppercase font-bold text-white ml-4">Github Repository URL</label>
-              <input 
-                value={githubLink} 
-                onChange={e => setGithubLink(e.target.value)}
-                placeholder="https://github.com/youruser/project"
-                className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white border border-white/5"
-              />
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-             <div className="space-y-1">
-                <label className="text-[12px] uppercase font-bold text-white ml-4">Tech Stack (Separate by commas)</label>
-                <input 
-                  value={techStack} 
-                  onChange={e => setTechStack(e.target.value)}
-                  placeholder="React, Next.js, TypeScript, Tailwind"
-                  className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white border border-white/5"
-                />
-              </div>
-              <ProjectMonthYearPicker label="Completion Date" value={date} onChange={setDate} />
-          </div>
-
-          <div className="space-y-1">
-            <label className="text-[12px] uppercase font-bold text-white ml-4">Project Description (Every sentence becomes a bullet point)</label>
-            <textarea 
-              value={description} 
-              onChange={e => setDescription(e.target.value)}
-              placeholder="Architected a full-stack dashboard. Optimized data fetching by 40%. Implemented responsive Bento grid UI."
-              className="w-full bg-white/5 p-6 rounded-[2.5rem] outline-none text-white h-48 border border-white/5 resize-none leading-relaxed"
-            />
-          </div>
+            <input value={projectImg} onChange={e => setProjectImg(e.target.value)} placeholder="Or paste custom URL" className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white text-xs border border-white/5 text-center" />
         </div>
 
-        {/* Deploy Button */}
-        <button 
-          onClick={handleSave}
-          className="w-full bg-white text-black py-8 rounded-[2.5rem] font-black uppercase text-xs tracking-[0.4em] hover:scale-[0.98] transition-transform active:scale-95 shadow-xl"
-        >
-          Deploy Project
-        </button>
+        {/* RIGHT: CONFIGURATION */}
+        <div className="space-y-6">
+            <div className="grid grid-cols-1 gap-6 bg-white/[0.03] p-8 md:p-10 border border-white/10 rounded-[4rem]">
+                <div className="space-y-1">
+                    <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50 tracking-widest">Project Name</label>
+                    <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Nexus UI Design..." className="w-full bg-white/5 p-5 rounded-[2rem] outline-none text-white border border-white/10 focus:border-blue-500 text-lg font-bold" />
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                        <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Category</label>
+                        <select value={category} onChange={e => handleCategoryChange(e.target.value as any)} className="w-full bg-zinc-900 p-4 rounded-2xl outline-none text-white border border-white/10">
+                            <option value="">Select Category</option>
+                            {Object.keys(CATEGORY_MAP).map(cat => <option key={cat} value={cat}>{cat}</option>)}
+                        </select>
+                    </div>
+                    <div className="space-y-1">
+                        <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Subcategory</label>
+                        <select value={subCategory} onChange={e => setSubCategory(e.target.value)} disabled={!category} className="w-full bg-zinc-900 p-4 rounded-2xl outline-none text-white border border-white/10 disabled:opacity-20">
+                            <option value="">Select Sub</option>
+                            {category && CATEGORY_MAP[category].subcategories.map(sub => <option key={sub} value={sub}>{sub}</option>)}
+                        </select>
+                    </div>
+                </div>
+
+                <div className="space-y-1">
+                    <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Tags (Comma Separated)</label>
+                    <input value={tags} onChange={e => setTags(e.target.value)} placeholder="Web, Art, AI..." className="w-full bg-white/5 p-4 rounded-2xl outline-none text-white border border-white/10" />
+                </div>
+
+                <div className="space-y-1">
+                    <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Process & Features (Sentence Auto-Separator)</label>
+                    <textarea value={description} onChange={e => setDescription(e.target.value)} className="w-full bg-white/5 p-6 rounded-[2.5rem] outline-none text-white h-32 border border-white/10" placeholder="Type sentence 1. Type sentence 2..." />
+                </div>
+
+                <button onClick={handleSave} disabled={loading} className="w-full bg-white text-black py-8 rounded-[2.5rem] font-black uppercase text-xs tracking-[0.4em] hover:scale-95 transition-all">
+                  {editingId ? "Update Project" : "Deploy Project"}
+                </button>
+            </div>
+        </div>
+      </div>
+
+      {/* --- PREVIOUSLY UPLOADED PROJECTS --- */}
+      <div className="space-y-12">
+          <div className="flex justify-between items-end">
+            <h2 className="text-5xl font-black tracking-tighter opacity-30 italic uppercase">Archives</h2>
+            <p className="text-[10px] uppercase font-bold opacity-30">{projects.length} Total Deployed</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+             {projects.map((p, idx) => (
+                <div key={p.id} className="group relative bg-white/[0.03] border border-white/5 rounded-[3rem] p-6 hover:bg-white/[0.06] transition-all flex flex-col gap-4">
+                    {/* Move Icons */}
+                    <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all">
+                       <button onClick={() => moveProject(idx, 'up')} className="p-2 bg-white/5 rounded-full hover:bg-white text-white hover:text-black transition-colors"><ArrowUp size={14}/></button>
+                       <button onClick={() => moveProject(idx, 'down')} className="p-2 bg-white/5 rounded-full hover:bg-white text-white hover:text-black transition-colors"><ArrowDown size={14}/></button>
+                    </div>
+
+                    <img src={p.image} className="w-full aspect-[4/3] object-cover rounded-[2rem]" />
+                    <div>
+                        <p className="text-[9px] uppercase font-bold tracking-[0.2em] text-blue-500 mb-1">{p.category} // {p.subCategory}</p>
+                        <h3 className="text-xl font-bold tracking-tight text-white line-clamp-1">{p.title}</h3>
+                    </div>
+
+                    <div className="mt-auto pt-4 flex gap-3 border-t border-white/5">
+                        <button onClick={() => startEdit(p)} className="flex-1 bg-white/5 py-3 rounded-xl flex items-center justify-center gap-2 text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+                            <Edit3 size={14}/> Edit
+                        </button>
+                        <button onClick={() => handleDelete(p.id)} className="w-12 h-12 bg-red-500/10 text-red-500 flex items-center justify-center rounded-xl hover:bg-red-500 hover:text-white transition-all">
+                            <Trash2 size={16}/>
+                        </button>
+                    </div>
+                </div>
+             ))}
+          </div>
       </div>
     </div>
   );
