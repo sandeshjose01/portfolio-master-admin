@@ -37,13 +37,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }
 
   const menu = [
-    { n: "Home", p: "/home", i: "🏠" },
-    { n: "About Me", p: "/about", i: "👤" },
-    { n: "Skills", p: "/skills", i: "⚡" },
-    { n: "Education", p: "/education", i: "🎓" },
-    { n: "Experience", p: "/experience", i: "💼" },
-    { n: "Projects", p: "/projects", i: "🚀" },
-    { n: "More", p: "/more", i: "✨" },
+    { n: "Home", p: "/admin/home", i: "🏠" },
+    { n: "About Me", p: "/admin/about", i: "👤" },
+    { n: "Skills", p: "/admin/skills", i: "⚡" },
+    { n: "Education", p: "/admin/education", i: "🎓" },
+    { n: "Experience", p: "/admin/experience", i: "💼" },
+    { n: "Projects", p: "/admin/projects", i: "🚀" },
+    { n: "More", p: "/admin/more", i: "✨" },
   ];
 
   return (
