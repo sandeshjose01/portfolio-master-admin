@@ -1,8 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Transpile these packages to handle modern JS syntax
+  // 1. Keeps your existing Firebase build fixes
   transpilePackages: ['undici', 'firebase', '@firebase'],
   
+  // 2. Authorize Cloudinary to show images and videos in your portfolio
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**',
+      },
+    ],
+  },
+
   webpack: (config) => {
     // This forces the build to ignore the specific problematic code in the client bundle
     config.externals.push({ undici: 'undici' });
