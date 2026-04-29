@@ -32,7 +32,7 @@ export default function AdminProjectsPage() {
   const[category, setCategory] = useState<keyof typeof CATEGORY_MAP | "">("");
   const[subCategory, setSubCategory] = useState("");
   const [tags, setTags] = useState("");
-  const [demoLink, setDemoLink] = useState("");
+  const[demoLink, setDemoLink] = useState(""); // <-- This is the Visit Link
   const[githubLink, setGithubLink] = useState("");
   const [date, setDate] = useState("");
   const[projectImg, setProjectImg] = useState("");
@@ -80,7 +80,6 @@ export default function AdminProjectsPage() {
     if (!title || !category || !projectImg) return alert("Fill mandatory fields (Title, Category, Image)");
     setLoading(true);
     try {
-      // ONLY split by new line (Enter key) to preserve paragraphs
       const descArray = description.split('\n').map(l => l.trim()).filter(l => l.length > 0);
       const tagsArray = tags.split(",").map(t => t.trim()).filter(t => t !== "");
 
@@ -121,7 +120,6 @@ export default function AdminProjectsPage() {
 
   const startEdit = (p: any) => {
     setEditingId(p.id); setTitle(p.title); setCategory(p.category); setSubCategory(p.subCategory); setTags(p.tags ? p.tags.join(", ") : ""); setDemoLink(p.demoLink || ""); setGithubLink(p.githubLink || ""); setDate(p.date || ""); setProjectImg(p.image); 
-    // Rejoin paragraphs with new lines so it looks right in the text box
     setDescription(Array.isArray(p.description) ? p.description.join("\n") : p.description); 
     setSoftwareUsed(p.softwareUsed ||[]);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -184,6 +182,18 @@ export default function AdminProjectsPage() {
                 </div>
             </div>
 
+            {/* --- ADDED LINK INPUTS --- */}
+            <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                    <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Live / Visit Link (Optional)</label>
+                    <input value={demoLink} onChange={e => setDemoLink(e.target.value)} placeholder="https://..." className="w-full bg-white/5 p-4 rounded-[1rem] outline-none text-white border border-white/10" />
+                </div>
+                <div className="space-y-1">
+                    <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">GitHub Link (Optional)</label>
+                    <input value={githubLink} onChange={e => setGithubLink(e.target.value)} placeholder="https://github.com/..." className="w-full bg-white/5 p-4 rounded-[1rem] outline-none text-white border border-white/10" />
+                </div>
+            </div>
+
             <div className="space-y-1">
                 <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Tags</label>
                 <input value={tags} onChange={e => setTags(e.target.value)} placeholder="Web, Art, AI..." className="w-full bg-white/5 p-4 rounded-[1rem] outline-none text-white border border-white/10" />
@@ -218,6 +228,8 @@ export default function AdminProjectsPage() {
                     <div>
                         <p className="text-[9px] uppercase font-black tracking-[0.2em] text-blue-500 mb-2">{p.category} // {p.subCategory}</p>
                         <h3 className="text-2xl font-bold tracking-tight text-white line-clamp-1">{p.title}</h3>
+                        {/* Display link status in archives */}
+                        {p.demoLink && <p className="text-[10px] text-green-400 mt-1">✓ Visit Link Active</p>}
                     </div>
                     <div className="mt-auto pt-6 flex gap-3">
                         <button onClick={() => startEdit(p)} className="flex-1 bg-white/5 py-4 rounded-2xl flex items-center justify-center gap-2 text-[10px] font-black uppercase text-white hover:bg-white hover:text-black"><Edit3 size={16}/> Modify</button>
