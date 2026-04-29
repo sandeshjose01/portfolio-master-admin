@@ -1,3 +1,5 @@
+// Project path: src/app/admin/projects/page.tsx
+
 "use client";
 import React, { useState, useEffect } from "react";
 import { db, CLOUDINARY_URL, CLOUDINARY_PRESET } from "@/lib/firebase";
@@ -32,12 +34,19 @@ export default function AdminProjectsPage() {
   const[category, setCategory] = useState<keyof typeof CATEGORY_MAP | "">("");
   const[subCategory, setSubCategory] = useState("");
   const [tags, setTags] = useState("");
-  const[demoLink, setDemoLink] = useState(""); // <-- This is the Visit Link
-  const[githubLink, setGithubLink] = useState("");
   const [date, setDate] = useState("");
   const[projectImg, setProjectImg] = useState("");
   const [description, setDescription] = useState("");
   const[softwareUsed, setSoftwareUsed] = useState<string[]>([]);
+
+  // --- NEW SMART URL STATES ---
+  const[demoLink, setDemoLink] = useState("");
+  const[githubLink, setGithubLink] = useState("");
+  const[youtubeLink, setYoutubeLink] = useState("");
+  const[linkedinLink, setLinkedinLink] = useState("");
+  const[facebookLink, setFacebookLink] = useState("");
+  const[instagramLink, setInstagramLink] = useState("");
+  const[tiktokLink, setTiktokLink] = useState("");
   
   const[projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
@@ -84,8 +93,10 @@ export default function AdminProjectsPage() {
       const tagsArray = tags.split(",").map(t => t.trim()).filter(t => t !== "");
 
       const projectData = {
-        title, category, subCategory, tags: tagsArray, demoLink, githubLink, date,
-        image: projectImg, description: descArray, softwareUsed, updatedAt: new Date()
+        title, category, subCategory, tags: tagsArray, date,
+        image: projectImg, description: descArray, softwareUsed, updatedAt: new Date(),
+        // Save all links
+        demoLink, githubLink, youtubeLink, linkedinLink, facebookLink, instagramLink, tiktokLink
       };
 
       if (editingId) {
@@ -115,13 +126,16 @@ export default function AdminProjectsPage() {
   };
 
   const resetForm = () => {
-    setEditingId(null); setTitle(""); setCategory(""); setSubCategory(""); setTags(""); setDemoLink(""); setGithubLink(""); setDate(""); setProjectImg(""); setDescription(""); setSoftwareUsed([]);
+    setEditingId(null); setTitle(""); setCategory(""); setSubCategory(""); setTags(""); setDate(""); setProjectImg(""); setDescription(""); setSoftwareUsed([]);
+    setDemoLink(""); setGithubLink(""); setYoutubeLink(""); setLinkedinLink(""); setFacebookLink(""); setInstagramLink(""); setTiktokLink("");
   };
 
   const startEdit = (p: any) => {
-    setEditingId(p.id); setTitle(p.title); setCategory(p.category); setSubCategory(p.subCategory); setTags(p.tags ? p.tags.join(", ") : ""); setDemoLink(p.demoLink || ""); setGithubLink(p.githubLink || ""); setDate(p.date || ""); setProjectImg(p.image); 
+    setEditingId(p.id); setTitle(p.title); setCategory(p.category); setSubCategory(p.subCategory); setTags(p.tags ? p.tags.join(", ") : ""); setDate(p.date || ""); setProjectImg(p.image); 
     setDescription(Array.isArray(p.description) ? p.description.join("\n") : p.description); 
     setSoftwareUsed(p.softwareUsed ||[]);
+    // Load links
+    setDemoLink(p.demoLink || ""); setGithubLink(p.githubLink || ""); setYoutubeLink(p.youtubeLink || ""); setLinkedinLink(p.linkedinLink || ""); setFacebookLink(p.facebookLink || ""); setInstagramLink(p.instagramLink || ""); setTiktokLink(p.tiktokLink || "");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -148,65 +162,74 @@ export default function AdminProjectsPage() {
             <input value={projectImg} onChange={e => setProjectImg(e.target.value)} placeholder="URL Override" className="w-full bg-white/5 p-4 rounded-xl outline-none text-white text-xs border border-white/10 text-center" />
         </div>
 
-        <div className="bg-white/[0.03] p-10 border border-white/10 rounded-[3rem] space-y-6">
-            <div className="space-y-1">
-                <label className="text-[11px] uppercase font-black text-white ml-4 tracking-[0.15em]">Project Title</label>
-                <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Main Title" className="w-full bg-white/5 p-5 rounded-[1rem] outline-none text-white border border-white/10 focus:border-blue-500 text-lg font-bold" />
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-white/[0.03] p-10 border border-white/10 rounded-[3rem] space-y-8">
+            
+            {/* --- CORE INFO --- */}
+            <div className="space-y-6">
                 <div className="space-y-1">
-                    <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Category</label>
-                    <select value={category} onChange={e => handleCategoryChange(e.target.value as any)} className="w-full bg-[#0a0a0a] p-5 rounded-[1rem] outline-none text-white border border-white/10">
-                        <option value="">Choose Main</option>
-                        {Object.keys(CATEGORY_MAP).map(cat => <option key={cat} value={cat}>{cat}</option>)}
-                    </select>
+                    <label className="text-[11px] uppercase font-black text-white ml-4 tracking-[0.15em]">Project Title</label>
+                    <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Main Title" className="w-full bg-white/5 p-5 rounded-[1rem] outline-none text-white border border-white/10 focus:border-blue-500 text-lg font-bold" />
                 </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                        <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Category</label>
+                        <select value={category} onChange={e => handleCategoryChange(e.target.value as any)} className="w-full bg-[#0a0a0a] p-5 rounded-[1rem] outline-none text-white border border-white/10">
+                            <option value="">Choose Main</option>
+                            {Object.keys(CATEGORY_MAP).map(cat => <option key={cat} value={cat}>{cat}</option>)}
+                        </select>
+                    </div>
+                    <div className="space-y-1">
+                        <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Subcategory</label>
+                        <select value={subCategory} onChange={e => setSubCategory(e.target.value)} disabled={!category} className="w-full bg-[#0a0a0a] p-5 rounded-[1rem] outline-none text-white border border-white/10 disabled:opacity-10">
+                            <option value="">Choose Sub</option>
+                            {category && CATEGORY_MAP[category].subcategories.map(sub => <option key={sub} value={sub}>{sub}</option>)}
+                        </select>
+                    </div>
+                </div>
+
+                <div className="space-y-2">
+                    <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Software Used</label>
+                    <div className="flex flex-wrap gap-2">
+                        {availableSoftware.map(soft => (
+                            <button key={soft} onClick={() => toggleSoftware(soft)} className={`px-4 py-2 rounded-xl text-[10px] font-bold tracking-widest uppercase transition-all border ${softwareUsed.includes(soft) ? "bg-blue-600 border-blue-500 text-white shadow-lg" : "bg-white/5 border-white/10 text-white/50 hover:text-white"}`}>
+                                {soft}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* --- SMART URL LINKS --- */}
+            <div className="p-6 bg-black/20 rounded-[2rem] border border-white/5 space-y-4">
+                <label className="text-[11px] uppercase font-black text-white tracking-[0.15em]">Project Links & Socials</label>
+                <div className="grid md:grid-cols-2 gap-4">
+                    <input value={demoLink} onChange={e => setDemoLink(e.target.value)} placeholder="Live Demo / Website URL" className="w-full bg-white/5 p-4 rounded-xl outline-none text-white text-sm border border-white/10 focus:border-blue-500" />
+                    <input value={githubLink} onChange={e => setGithubLink(e.target.value)} placeholder="GitHub Repository URL" className="w-full bg-white/5 p-4 rounded-xl outline-none text-white text-sm border border-white/10 focus:border-white" />
+                    <input value={youtubeLink} onChange={e => setYoutubeLink(e.target.value)} placeholder="YouTube Video URL" className="w-full bg-white/5 p-4 rounded-xl outline-none text-white text-sm border border-white/10 focus:border-red-500" />
+                    <input value={linkedinLink} onChange={e => setLinkedinLink(e.target.value)} placeholder="LinkedIn Post URL" className="w-full bg-white/5 p-4 rounded-xl outline-none text-white text-sm border border-white/10 focus:border-blue-400" />
+                    <input value={facebookLink} onChange={e => setFacebookLink(e.target.value)} placeholder="Facebook Link" className="w-full bg-white/5 p-4 rounded-xl outline-none text-white text-sm border border-white/10 focus:border-blue-600" />
+                    <input value={instagramLink} onChange={e => setInstagramLink(e.target.value)} placeholder="Instagram Link" className="w-full bg-white/5 p-4 rounded-xl outline-none text-white text-sm border border-white/10 focus:border-pink-500" />
+                    <input value={tiktokLink} onChange={e => setTiktokLink(e.target.value)} placeholder="TikTok Link" className="w-full bg-white/5 p-4 rounded-xl outline-none text-white text-sm border border-white/10 focus:border-white" />
+                </div>
+            </div>
+
+            {/* --- DETAILS --- */}
+            <div className="space-y-6">
                 <div className="space-y-1">
-                    <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Subcategory</label>
-                    <select value={subCategory} onChange={e => setSubCategory(e.target.value)} disabled={!category} className="w-full bg-[#0a0a0a] p-5 rounded-[1rem] outline-none text-white border border-white/10 disabled:opacity-10">
-                        <option value="">Choose Sub</option>
-                        {category && CATEGORY_MAP[category].subcategories.map(sub => <option key={sub} value={sub}>{sub}</option>)}
-                    </select>
+                    <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Tags</label>
+                    <input value={tags} onChange={e => setTags(e.target.value)} placeholder="Web, Art, AI..." className="w-full bg-white/5 p-4 rounded-[1rem] outline-none text-white border border-white/10" />
                 </div>
-            </div>
 
-            <div className="space-y-2">
-                <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Software Used</label>
-                <div className="flex flex-wrap gap-2">
-                    {availableSoftware.map(soft => (
-                        <button key={soft} onClick={() => toggleSoftware(soft)} className={`px-4 py-2 rounded-xl text-[10px] font-bold tracking-widest uppercase transition-all border ${softwareUsed.includes(soft) ? "bg-blue-600 border-blue-500 text-white shadow-lg" : "bg-white/5 border-white/10 text-white/50 hover:text-white"}`}>
-                            {soft}
-                        </button>
-                    ))}
-                </div>
-            </div>
-
-            {/* --- ADDED LINK INPUTS --- */}
-            <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                    <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Live / Visit Link (Optional)</label>
-                    <input value={demoLink} onChange={e => setDemoLink(e.target.value)} placeholder="https://..." className="w-full bg-white/5 p-4 rounded-[1rem] outline-none text-white border border-white/10" />
+                    <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Project Description</label>
+                    <textarea value={description} onChange={e => setDescription(e.target.value)} className="w-full bg-white/5 p-6 rounded-[1.5rem] outline-none text-white h-48 border border-white/10 resize-none leading-relaxed" placeholder="Write paragraph... Press Enter to start a new paragraph." />
                 </div>
-                <div className="space-y-1">
-                    <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">GitHub Link (Optional)</label>
-                    <input value={githubLink} onChange={e => setGithubLink(e.target.value)} placeholder="https://github.com/..." className="w-full bg-white/5 p-4 rounded-[1rem] outline-none text-white border border-white/10" />
-                </div>
-            </div>
 
-            <div className="space-y-1">
-                <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Tags</label>
-                <input value={tags} onChange={e => setTags(e.target.value)} placeholder="Web, Art, AI..." className="w-full bg-white/5 p-4 rounded-[1rem] outline-none text-white border border-white/10" />
+                <button onClick={handleSave} disabled={loading} className="w-full bg-white text-black py-8 rounded-[1.5rem] font-black uppercase text-xs tracking-[0.4em] hover:scale-95 shadow-2xl disabled:opacity-30">
+                  {loading ? "SAVING..." : editingId ? "OVERWRITE RECORD" : "DEPLOY TO DATABASE"}
+                </button>
             </div>
-
-            <div className="space-y-1">
-                <label className="text-[11px] uppercase font-black text-white ml-4 opacity-50">Project Description</label>
-                <textarea value={description} onChange={e => setDescription(e.target.value)} className="w-full bg-white/5 p-6 rounded-[1.5rem] outline-none text-white h-48 border border-white/10 resize-none leading-relaxed" placeholder="Write paragraph... Press Enter to start a new paragraph." />
-            </div>
-
-            <button onClick={handleSave} disabled={loading} className="w-full bg-white text-black py-8 rounded-[1.5rem] font-black uppercase text-xs tracking-[0.4em] hover:scale-95 shadow-2xl disabled:opacity-30">
-              {loading ? "SAVING..." : editingId ? "OVERWRITE RECORD" : "DEPLOY TO DATABASE"}
-            </button>
         </div>
       </div>
 
@@ -228,8 +251,6 @@ export default function AdminProjectsPage() {
                     <div>
                         <p className="text-[9px] uppercase font-black tracking-[0.2em] text-blue-500 mb-2">{p.category} // {p.subCategory}</p>
                         <h3 className="text-2xl font-bold tracking-tight text-white line-clamp-1">{p.title}</h3>
-                        {/* Display link status in archives */}
-                        {p.demoLink && <p className="text-[10px] text-green-400 mt-1">✓ Visit Link Active</p>}
                     </div>
                     <div className="mt-auto pt-6 flex gap-3">
                         <button onClick={() => startEdit(p)} className="flex-1 bg-white/5 py-4 rounded-2xl flex items-center justify-center gap-2 text-[10px] font-black uppercase text-white hover:bg-white hover:text-black"><Edit3 size={16}/> Modify</button>
