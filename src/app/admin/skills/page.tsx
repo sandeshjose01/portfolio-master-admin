@@ -210,8 +210,6 @@ const AUTO_ICONS: Record<string, string> = {
   "shopify": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg",
   "etsy": "https://upload.wikimedia.org/wikipedia/commons/8/89/Etsy_logo.svg",
 
-  
-};
 };
 
 export default function AdminSkillsPage() {
