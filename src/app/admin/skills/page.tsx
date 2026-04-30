@@ -45,33 +45,33 @@ const AUTO_ICONS: Record<string, string> = {
   "adobe lr": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg",
 
   // Adobe Audition
-  "audition": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Adobe_Audition_CC_icon.svg",
-  "adobe audition": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Adobe_Audition_CC_icon.svg",
-  "au": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Adobe_Audition_CC_icon.svg",
-  "adobe au": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Adobe_Audition_CC_icon.svg",
+  "audition": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Adobe_Audition_CC_2026_icon.svg",
+  "adobe audition": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Adobe_Audition_CC_2026_icon.svg",
+  "au": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Adobe_Audition_CC_2026_icon.svg",
+  "adobe au": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Adobe_Audition_CC_2026_icon.svg",
 
   // Adobe Animate / Flash
-  "animate": "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Animate_CC_icon.svg",
-  "adobe animate": "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Animate_CC_icon.svg",
-  "an": "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Animate_CC_icon.svg",
-  "adobe an": "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Animate_CC_icon.svg",
-  "flash": "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Animate_CC_icon.svg",
+  "animate": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg",
+  "adobe animate": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg",
+  "an": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg",
+  "adobe an": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg",
+  "flash": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg",
 
   // Adobe Media Encoder
-  "media encoder": "https://upload.wikimedia.org/wikipedia/commons/4/47/Adobe_Media_Encoder_CC_icon.svg",
-  "me": "https://upload.wikimedia.org/wikipedia/commons/4/47/Adobe_Media_Encoder_CC_icon.svg",
-  "adobe me": "https://upload.wikimedia.org/wikipedia/commons/4/47/Adobe_Media_Encoder_CC_icon.svg",
+  "media encoder": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Adobe_Media_Encoder_CC_2026_icon.svg",
+  "me": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Adobe_Media_Encoder_CC_2026_icon.svg",
+  "adobe me": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Adobe_Media_Encoder_CC_2026_icon.svg",
 
   // Adobe Acrobat / PDF
-  "acrobat": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Adobe_Acrobat_DC_logo_2020.svg",
-  "adobe acrobat": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Adobe_Acrobat_DC_logo_2020.svg",
-  "pdf": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Adobe_Acrobat_DC_logo_2020.svg",
+  "acrobat": "https://upload.wikimedia.org/wikipedia/commons/6/60/Adobe_Acrobat_Reader_icon_%282020%29.svg",
+  "adobe acrobat": "https://upload.wikimedia.org/wikipedia/commons/6/60/Adobe_Acrobat_Reader_icon_%282020%29.svg",
+  "pdf": "https://upload.wikimedia.org/wikipedia/commons/6/60/Adobe_Acrobat_Reader_icon_%282020%29.svg",
 
   // DaVinci Resolve
-  "davinci resolve": "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio_17_logo.png",
-  "davinci": "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio_17_logo.png",
-  "resolve": "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio_17_logo.png",
-  "dvr": "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio_17_logo.png",
+  "davinci resolve": "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png",
+  "davinci": "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png",
+  "resolve": "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png",
+  "dvr": "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png",
 
   // Figma
   "figma": "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
@@ -80,66 +80,66 @@ const AUTO_ICONS: Record<string, string> = {
   "canva": "https://img.icons8.com/?size=100&id=iWw83PVcBpLw&format=png&color=000000",
    
    // Capcut
-  "capcut": "https://upload.wikimedia.org/wikipedia/en/2/23/CapCut_logo.png",
+  "capcut": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Capcut-icon.svg",
    
    //Blinder
   "blender": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg",
    
    // Coraldraw
-  "coreldraw": "https://upload.wikimedia.org/wikipedia/commons/d/d0/CorelDraw_X8_Icon.png",
+  "coreldraw": "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/coreldraw-icon.png",
    
    // Microsoft Office
-  "office": "https://upload.wikimedia.org/wikipedia/commons/4/42/Microsoft_Office_2013_logo_and_wordmark.svg",
-  "microsoft office": "https://upload.wikimedia.org/wikipedia/commons/4/42/Microsoft_Office_2013_logo_and_wordmark.svg",
-  "ms office": "https://upload.wikimedia.org/wikipedia/commons/4/42/Microsoft_Office_2013_logo_and_wordmark.svg",
+  "office": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Microsoft_Office_logo_%282013%E2%80%932019%29.svg",
+  "microsoft office": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Microsoft_Office_logo_%282013%E2%80%932019%29.svg",
+  "ms office": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Microsoft_Office_logo_%282013%E2%80%932019%29.svg",
    
    // MS Word
-  "word": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Microsoft_Word_2013-2019_logo.svg",
-  "microsoft word": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Microsoft_Word_2013-2019_logo.svg",
-  "ms word": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Microsoft_Word_2013-2019_logo.svg",
+  "word": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg",
+  "microsoft word": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg",
+  "ms word": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg",
    
    // MS Excel
-  "excel": "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Excel_2013-2019_logo.svg",
-  "microsoft excel": "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Excel_2013-2019_logo.svg",
-  "ms excel": "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Excel_2013-2019_logo.svg",
+  "excel": "https://upload.wikimedia.org/wikipedia/commons/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg",
+  "microsoft excel": "https://upload.wikimedia.org/wikipedia/commons/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg",
+  "ms excel": "https://upload.wikimedia.org/wikipedia/commons/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg",
    
    // MS Powerpoint
-  "powerpoint": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_PowerPoint_2013-2019_logo.svg",
-  "microsoft powerpoint": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_PowerPoint_2013-2019_logo.svg",
-  "ms powerpoint": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_PowerPoint_2013-2019_logo.svg",
-  "ppt": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_PowerPoint_2013-2019_logo.svg",
+  "powerpoint": "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg",
+  "microsoft powerpoint": "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg",
+  "ms powerpoint": "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg",
+  "ppt": "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg",
 
   // Adobe XD (UI/UX)
   "xd": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg",
   "adobe xd": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg",
 
   // Adobe Bridge (Asset Management)
-  "bridge": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Adobe_Bridge_CC_icon.svg",
-  "adobe bridge": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Adobe_Bridge_CC_icon.svg",
+  "bridge": "https://upload.wikimedia.org/wikipedia/commons/4/44/Adobe_Bridge_CC_2026_icon.svg",
+  "adobe bridge": "https://upload.wikimedia.org/wikipedia/commons/4/44/Adobe_Bridge_CC_2026_icon.svg",
 
   // Procreate (Digital Illustration)
-  "procreate": "https://upload.wikimedia.org/wikipedia/commons/7/73/Procreate_logo.png",
+  "procreate": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmL9NFoRdcC_Bg1zdAp0oSgFrPdum3MpZlUg&s",
 
   // Affinity Designer
-  "affinity designer": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Affinity_Designer_Icon.png",
+  "affinity designer": "https://upload.wikimedia.org/wikipedia/commons/8/86/Affinity_Designer_V2_icon.svg",
   
   // Sketch (UI/UX)
   "sketch": "https://upload.wikimedia.org/wikipedia/commons/5/59/Sketch_Logo.svg",
 
   // Cinema 4D
-  "cinema 4d": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Cinema_4D_Logo.png",
-  "c4d": "https://upload.wikimedia.org/wikipedia/e/e3/Cinema_4D_Logo.png",
+  "cinema 4d": "https://e7.pngegg.com/pngimages/1017/118/png-clipart-cinema-4d-3d-computer-graphics-autodesk-maya-3d-modeling-motion-graphics-cinema-material-angle-3d-computer-graphics.png",
+  "c4d": "https://e7.pngegg.com/pngimages/1017/118/png-clipart-cinema-4d-3d-computer-graphics-autodesk-maya-3d-modeling-motion-graphics-cinema-material-angle-3d-computer-graphics.png",
 
   // Unreal Engine (Real-time Video/Environments)
-  "unreal": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Unreal_Engine_Logo.svg",
-  "unreal engine": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Unreal_Engine_Logo.svg",
-  "ue5": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Unreal_Engine_Logo.svg",
+  "unreal": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Unreal_Engine_Logo_%28new_typeface%29.svg",
+  "unreal engine": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Unreal_Engine_Logo_%28new_typeface%29.svg",
+  "ue5": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Unreal_Engine_Logo_%28new_typeface%29.svg",
 
   // Maya
-  "maya": "https://upload.wikimedia.org/wikipedia/commons/1/12/Autodesk_Maya_logo.svg",
+  "maya": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Icon_of_maya_2023.png",
 
   // Topaz Video AI (Enhancing video quality)
-  "topaz": "https://upload.wikimedia.org/wikipedia/en/2/27/Topaz_Labs_logo.png",
+  "topaz": "https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2F918dc7ce-d47c-40f8-9c20-5c08ab8bac40&w=256&q=75",
 
   // Meta Business Suite (Facebook/Instagram Ads)
   "meta": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
@@ -152,11 +152,11 @@ const AUTO_ICONS: Record<string, string> = {
   "slack": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg",
 
   // Trello
-  "trello": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Trello-logo.svg",
+  "trello": "https://images.icon-icons.com/2699/PNG/512/trello_logo_icon_167765.png",
 
   // WordPress
-  "wordpress": "https://upload.wikimedia.org/wikipedia/commons/9/93/Wordpress_Blue_logo.svg",
-  "wp": "https://upload.wikimedia.org/wikipedia/commons/9/93/Wordpress_Blue_logo.svg",
+  "wordpress": "https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg",
+  "wp": "https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svgmons/9/98/WordPress_blue_logo.svg",
 
   // HTML5
   "html": "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
@@ -167,15 +167,16 @@ const AUTO_ICONS: Record<string, string> = {
   "css3": "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
 
   // Midjourney
-  "midjourney": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.svg",
+  "midjourney": "https://upload.wikimedia.org/wikipedia/commons/2/24/Midjourney_Emblem.svg",
 
   // ChatGPT (for Content/Copywriting)
   "chatgpt": "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
   "openai": "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+  "gpt": "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
 
   // TikTok Business & Ads
-  "tiktok business": "https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg",
-  "tiktok ads": "https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg",
+  "tiktok business": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Tiktok_icon.svg",
+  "tiktok ads": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Tiktok_icon.svg",
 
   // LinkedIn Business & Ads
   "linkedin business": "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
@@ -195,16 +196,20 @@ const AUTO_ICONS: Record<string, string> = {
   "youtube studio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Youtube_Music_icon.svg",
   "youtube marketing": "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg",
 
+   // YouTube
+  "youtube": "https://upload.wikimedia.org/wikipedia/commons/f/fd/YouTube_full-color_icon_%282024%29.svg",
+  "youtube": "https://upload.wikimedia.org/wikipedia/commons/f/fd/YouTube_full-color_icon_%282024%29.svg",
+
   // Pinterest Business
-  "pinterest business": "https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png",
-  "pinterest ads": "https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png",
+  "pinterest business": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Pinterest.svg",
+  "pinterest ads": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Pinterest.svg",
 
   // Email Marketing
-  "mailchimp": "https://upload.wikimedia.org/wikipedia/en/c/cc/Mailchimp_Logo.svg",
+  "mailchimp": "https://www.svgrepo.com/show/452053/mailchimp.svg",
   
   // Social Media Management
-  "hootsuite": "https://upload.wikimedia.org/wikipedia/en/2/23/Hootsuite_logo.svg",
-  "buffer": "https://upload.wikimedia.org/wikipedia/commons/3/30/Buffer_logo.svg",
+  "hootsuite": "https://logos-world.net/wp-content/uploads/2021/04/Hootsuite-Symbol.png",
+  "buffer": "https://cdn-icons-png.flaticon.com/512/10146/10146194.png",
 
   // E-commerce Design
   "shopify": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg",
