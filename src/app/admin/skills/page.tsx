@@ -108,6 +108,109 @@ const AUTO_ICONS: Record<string, string> = {
   "microsoft powerpoint": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_PowerPoint_2013-2019_logo.svg",
   "ms powerpoint": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_PowerPoint_2013-2019_logo.svg",
   "ppt": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_PowerPoint_2013-2019_logo.svg",
+
+  // Adobe XD (UI/UX)
+  "xd": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg",
+  "adobe xd": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg",
+
+  // Adobe Bridge (Asset Management)
+  "bridge": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Adobe_Bridge_CC_icon.svg",
+  "adobe bridge": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Adobe_Bridge_CC_icon.svg",
+
+  // Procreate (Digital Illustration)
+  "procreate": "https://upload.wikimedia.org/wikipedia/commons/7/73/Procreate_logo.png",
+
+  // Affinity Designer
+  "affinity designer": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Affinity_Designer_Icon.png",
+  
+  // Sketch (UI/UX)
+  "sketch": "https://upload.wikimedia.org/wikipedia/commons/5/59/Sketch_Logo.svg",
+
+  // Cinema 4D
+  "cinema 4d": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Cinema_4D_Logo.png",
+  "c4d": "https://upload.wikimedia.org/wikipedia/e/e3/Cinema_4D_Logo.png",
+
+  // Unreal Engine (Real-time Video/Environments)
+  "unreal": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Unreal_Engine_Logo.svg",
+  "unreal engine": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Unreal_Engine_Logo.svg",
+  "ue5": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Unreal_Engine_Logo.svg",
+
+  // Maya
+  "maya": "https://upload.wikimedia.org/wikipedia/commons/1/12/Autodesk_Maya_logo.svg",
+
+  // Topaz Video AI (Enhancing video quality)
+  "topaz": "https://upload.wikimedia.org/wikipedia/en/2/27/Topaz_Labs_logo.png",
+
+  // Meta Business Suite (Facebook/Instagram Ads)
+  "meta": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
+  "meta business": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
+
+  // Notion (Project Management)
+  "notion": "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png",
+
+  // Slack (Team Communication)
+  "slack": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg",
+
+  // Trello
+  "trello": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Trello-logo.svg",
+
+  // WordPress
+  "wordpress": "https://upload.wikimedia.org/wikipedia/commons/9/93/Wordpress_Blue_logo.svg",
+  "wp": "https://upload.wikimedia.org/wikipedia/commons/9/93/Wordpress_Blue_logo.svg",
+
+  // HTML5
+  "html": "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
+  "html5": "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
+
+  // CSS3
+  "css": "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
+  "css3": "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
+
+  // Midjourney
+  "midjourney": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.svg",
+
+  // ChatGPT (for Content/Copywriting)
+  "chatgpt": "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+  "openai": "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+
+  // TikTok Business & Ads
+  "tiktok business": "https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg",
+  "tiktok ads": "https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg",
+
+  // LinkedIn Business & Ads
+  "linkedin business": "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
+  "linkedin ads": "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
+  "linkedin marketing": "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
+
+  // Meta (Facebook/Instagram) Business Suite
+  "meta business suite": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
+  "meta ads": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
+  "facebook ads": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
+
+  // Google Ads
+  "google ads": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg",
+  "adwords": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg",
+
+  // YouTube Studio/Marketing
+  "youtube studio": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Youtube_Music_icon.svg",
+  "youtube marketing": "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg",
+
+  // Pinterest Business
+  "pinterest business": "https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png",
+  "pinterest ads": "https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png",
+
+  // Email Marketing
+  "mailchimp": "https://upload.wikimedia.org/wikipedia/en/c/cc/Mailchimp_Logo.svg",
+  
+  // Social Media Management
+  "hootsuite": "https://upload.wikimedia.org/wikipedia/en/2/23/Hootsuite_logo.svg",
+  "buffer": "https://upload.wikimedia.org/wikipedia/commons/3/30/Buffer_logo.svg",
+
+  // E-commerce Design
+  "shopify": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg",
+  "etsy": "https://upload.wikimedia.org/wikipedia/commons/8/89/Etsy_logo.svg",
+
+  
 };
 };
 
@@ -221,6 +324,7 @@ export default function AdminSkillsPage() {
                 <select value={category} onChange={e => setCategory(e.target.value)} className="w-full bg-[#0a0a0a] p-5 rounded-2xl text-white border border-white/10 cursor-pointer">
                     <option>Graphic Designing Tools</option>
                     <option>Video Editing Tools</option>
+                    <option>Marketing & Ad Tools</option> {/* NEW CATEGORY */}
                     <option>Microsoft Office</option>
                     <option>Other Tools</option>
                 </select>
