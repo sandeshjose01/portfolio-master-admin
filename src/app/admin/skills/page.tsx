@@ -6,7 +6,7 @@ import { Trash2, Edit3, GripVertical, Sparkles, ImagePlus, Save } from "lucide-r
 
 // --- EXPANDED SMART ICON LIBRARY ---
 const AUTO_ICONS: Record<string, string> = {
- const AUTO_ICONS: Record<string, string> = {
+ 
   // Adobe Photoshop
   "photoshop": "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
   "adobe photoshop": "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
