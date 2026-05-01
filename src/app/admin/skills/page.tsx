@@ -25,81 +25,81 @@ const SOFTWARE_DATABASE: Record<string, { icon: string, category: string }> = {
   // ==========================================
  
   // Adobe Photoshop
-  "photoshop": { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
-  "adobe photoshop": { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
-  "ps":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
-  "adobe ps": { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
+  "photoshop": { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" },
+  "adobe photoshop": { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" },
+  "ps":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" },
+  "adobe ps": { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" },
 
   // Adobe Illustrator
-  "illustrator":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg",
-  "adobe illustrator":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg",
-  "ai":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg",
-  "adobe ai":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg",
+  "illustrator":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" },
+  "adobe illustrator":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" },
+  "ai":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg"},
+  "adobe ai":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" },
 
   // Adobe InDesign
-  "indesign":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg",
-  "adobe indesign":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg",
-  "id":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg",
-  "adobe id":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg",
+  "indesign":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg" },
+  "adobe indesign":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg" },
+  "id":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg" },
+  "adobe id":  { category: "Brand & Visual Identity", icon: "https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg" },
 
   // Adobe Lightroom
-  "lightroom": { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg",
-  "adobe lightroom": { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg",
-  "lr": { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg",
-  "adobe lr": { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg",
+  "lightroom": { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg" },
+  "adobe lightroom": { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg" },
+  "lr": { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg" },
+  "adobe lr": { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg" },
 
   // Coraldraw
-  "coreldraw":  { category: "Graphic Designing Tools", icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/coreldraw-icon.png",
+  "coreldraw":  { category: "Graphic Designing Tools", icon: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/coreldraw-icon.png" },
 
    // Procreate
-  "procreate":  { category: "Graphic Designing Tools", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmL9NFoRdcC_Bg1zdAp0oSgFrPdum3MpZlUg&s",
+  "procreate":  { category: "Graphic Designing Tools", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmL9NFoRdcC_Bg1zdAp0oSgFrPdum3MpZlUg&s" },
    
   // Affinity Designer
-  "affinity designer":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/8/86/Affinity_Designer_V2_icon.svg",    
- "ad":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/8/86/Affinity_Designer_V2_icon.svg",  
- "ades":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/8/86/Affinity_Designer_V2_icon.svg",  
+  "affinity designer":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/8/86/Affinity_Designer_V2_icon.svg" },
+ "ad":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/8/86/Affinity_Designer_V2_icon.svg" },  
+ "ades":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/8/86/Affinity_Designer_V2_icon.svg" },  
                         
   // Affinity Photo
-  "affinity photo":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Affinity_Photo_V2_icon.svg",
-  "aph":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Affinity_Photo_V2_icon.svg",
-  "ap":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Affinity_Photo_V2_icon.svg",
+  "affinity photo":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Affinity_Photo_V2_icon.svg" },
+  "aph":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Affinity_Photo_V2_icon.svg" },
+  "ap":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Affinity_Photo_V2_icon.svg" },
                       
   // Affinity Publishor
-  "affinity publisher":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Affinity_Publisher_V2_icon.svg",
-  "apu":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Affinity_Publisher_V2_icon.svg",
-  "apub":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Affinity_Publisher_V2_icon.svg",
+  "affinity publisher":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Affinity_Publisher_V2_icon.svg" },
+  "apu":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Affinity_Publisher_V2_icon.svg" },
+  "apub":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Affinity_Publisher_V2_icon.svg" },
 
   //Affinity By Canva
-  "affinity by canva":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Affinity_%28App%29_Logo.svg",
+  "affinity by canva":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Affinity_%28App%29_Logo.svg" },
 
   // Canva
-  "canva":  { category: "Graphic Designing Tools", icon: "https://img.icons8.com/?size=100&id=iWw83PVcBpLw&format=png&color=000000",
+  "canva":  { category: "Graphic Designing Tools", icon: "https://img.icons8.com/?size=100&id=iWw83PVcBpLw&format=png&color=000000" },
    
   // ==========================================
   // SECTION 2: UI/UX & Web Solutions
   // ==========================================
 
   // Adobe XD (UI/UX)
-  "xd": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg",
-  "adobe xd": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg",
+  "xd": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg" },
+  "adobe xd": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg" },
 
   // Figma
-  "figma":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
+  "figma":  { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" },
 
   // Sketch (UI/UX)
-  "sketch": { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/5/59/Sketch_Logo.svg",
+  "sketch": { category: "Graphic Designing Tools", icon: "https://upload.wikimedia.org/wikipedia/commons/5/59/Sketch_Logo.svg" },
 
   // WordPress
-  "wordpress": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg",
-  "wp": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svgmons/9/98/WordPress_blue_logo.svg",
+  "wordpress": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg" },
+  "wp": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svgmons/9/98/WordPress_blue_logo.svg" },
              
   // HTML5
-  "html": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
-  "html5": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
+  "html": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" },
+  "html5": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" },
 
   // CSS3
-  "css": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
-  "css3": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
+  "css": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" },
+  "css3": { category: "UI/UX & Web Solutions", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" },
         
   
   // ==========================================
@@ -107,46 +107,46 @@ const SOFTWARE_DATABASE: Record<string, { icon: string, category: string }> = {
   // ==========================================
 
    // Adobe Premiere Pro
-  "premiere pro": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg",
-  "adobe premiere": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg",
-  "pr": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg",
-  "adobe pr": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg",
-  "premiere": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg",
+  "premiere pro": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" },
+  "adobe premiere": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" },
+  "pr": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" },
+  "adobe pr": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" },
+  "premiere": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" },
 
   // Adobe After Effects
-  "after effects": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg",
-  "adobe after effects": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg",
-  "ae": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg",
-  "adobe ae": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg",
+  "after effects": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" },
+  "adobe after effects": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" },
+  "ae": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" },
+  "adobe ae": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" },
 
  // Adobe Animate / Flash
-  "animate": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg",
-  "adobe animate": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg",
-  "an": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg",
-  "adobe an": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg",
-  "flash": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg",
+  "animate": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg" },
+  "adobe animate": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg" },
+  "an": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg" },
+  "adobe an": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg" },
+  "flash": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Adobe_Animate_CC_icon_%282020%29.svg" },
                
   // DaVinci Resolve
-  "davinci resolve": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png",
-  "davinci": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png",
-  "resolve": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png",
-  "dvr": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png",
+  "davinci resolve": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" },
+  "davinci": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" },
+  "resolve": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" },
+  "dvr": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" },
 
    // Capcut
-  "capcut": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Capcut-icon.svg",  
+  "capcut": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Capcut-icon.svg" },  
 
   // Topaz Video AI (Enhancing video quality)
-  "topaz": "https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2F918dc7ce-d47c-40f8-9c20-5c08ab8bac40&w=256&q=75",
+  "topaz": "https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2F918dc7ce-d47c-40f8-9c20-5c08ab8bac40&w=256&q=75" },
                
  // Adobe Audition
-  "audition": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Adobe_Audition_CC_2026_icon.svg",
-  "adobe audition": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Adobe_Audition_CC_2026_icon.svg",
-  "au": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Adobe_Audition_CC_2026_icon.svg",
-  "adobe au": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Adobe_Audition_CC_2026_icon.svg",
+  "audition": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Adobe_Audition_CC_2026_icon.svg" },
+  "adobe audition": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Adobe_Audition_CC_2026_icon.svg" },
+  "au": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Adobe_Audition_CC_2026_icon.svg" },
+  "adobe au": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Adobe_Audition_CC_2026_icon.svg" },
           
   // Cinema 4D
-  "cinema 4d": { category: "Video & Motion Graphics", icon: "https://e7.pngegg.com/pngimages/1017/118/png-clipart-cinema-4d-3d-computer-graphics-autodesk-maya-3d-modeling-motion-graphics-cinema-material-angle-3d-computer-graphics.png",
-  "c4d": { category: "Video & Motion Graphics", icon: "https://e7.pngegg.com/pngimages/1017/118/png-clipart-cinema-4d-3d-computer-graphics-autodesk-maya-3d-modeling-motion-graphics-cinema-material-angle-3d-computer-graphics.png",
+  "cinema 4d": { category: "Video & Motion Graphics", icon: "https://e7.pngegg.com/pngimages/1017/118/png-clipart-cinema-4d-3d-computer-graphics-autodesk-maya-3d-modeling-motion-graphics-cinema-material-angle-3d-computer-graphics.png" },
+  "c4d": { category: "Video & Motion Graphics", icon: "https://e7.pngegg.com/pngimages/1017/118/png-clipart-cinema-4d-3d-computer-graphics-autodesk-maya-3d-modeling-motion-graphics-cinema-material-angle-3d-computer-graphics.png" },
                
   // Adobe Media Encoder
    "media encoder": { category: "Video & Motion Graphics", icon: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Adobe_Media_Encoder_Icon.svg" },
@@ -160,109 +160,109 @@ const SOFTWARE_DATABASE: Record<string, { icon: string, category: string }> = {
   // ==========================================
 
   // YouTube Studio/Marketing
-  "youtube studio": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Youtube_Music_icon.svg",
-  "youtube marketing": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg",
+  "youtube studio": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Youtube_Music_icon.svg" },
+  "youtube marketing": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" },
           
   // TikTok Business & Ads
-  "tiktok business": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Tiktok_icon.svg",
-  "tiktok ads": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Tiktok_icon.svg",
+  "tiktok business": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Tiktok_icon.svg" },
+  "tiktok ads": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Tiktok_icon.svg" },
 
   // LinkedIn Business & Ads
-  "linkedin business": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
-  "linkedin ads": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
-  "linkedin marketing": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
+  "linkedin business": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" },
+  "linkedin ads": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" },
+  "linkedin marketing": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" },
 
   // Meta (Facebook/Instagram) Business Suite
-  "meta business suite": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
-  "meta ads": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
-  "facebook ads": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
+  "meta business suite": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" },
+  "meta ads": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" },
+  "facebook ads": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" },
 
   // Pinterest Business
-  "pinterest business": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Pinterest.svg",
-  "pinterest ads": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Pinterest.svg",
+  "pinterest business": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Pinterest.svg" },
+  "pinterest ads": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Pinterest.svg" },
                    
   // Google Ads
-  "google ads": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg",
-  "adwords": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg",
+  "google ads": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg" },
+  "adwords": { category: "Digital Marketing", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg" },
         
   // Mailchimp
-  "mailchimp": { category: "Digital Marketing", icon: "https://www.svgrepo.com/show/452053/mailchimp.svg",
+  "mailchimp": { category: "Digital Marketing", icon: "https://www.svgrepo.com/show/452053/mailchimp.svg" },
   
   // Hootsuit
-  "hootsuite": { category: "Digital Marketing", icon: "https://logos-world.net/wp-content/uploads/2021/04/Hootsuite-Symbol.png",
+  "hootsuite": { category: "Digital Marketing", icon: "https://logos-world.net/wp-content/uploads/2021/04/Hootsuite-Symbol.png" },
 
   // Buffer 
-  "buffer": "https://cdn-icons-png.flaticon.com/512/10146/10146194.png",
+  "buffer": "https://cdn-icons-png.flaticon.com/512/10146/10146194.png" },
     
   // ==========================================
   // SECTION 5: Business & Productivity
   // ==========================================
 
    // Microsoft Office
-  "office": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Microsoft_Office_logo_%282013%E2%80%932019%29.svg",
-  "microsoft office": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Microsoft_Office_logo_%282013%E2%80%932019%29.svg",
-  "ms office": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Microsoft_Office_logo_%282013%E2%80%932019%29.svg",
+  "office": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Microsoft_Office_logo_%282013%E2%80%932019%29.svg" },
+  "microsoft office": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Microsoft_Office_logo_%282013%E2%80%932019%29.svg" },
+  "ms office": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Microsoft_Office_logo_%282013%E2%80%932019%29.svg" },
    
    // MS Word
-  "word": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg",
-  "microsoft word": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg",
-  "ms word": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg",
+  "word": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg" },
+  "microsoft word": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg" },
+  "ms word": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg" },
    
    // MS Excel
-  "excel": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg",
-  "microsoft excel": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg",
-  "ms excel": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg",
+  "excel": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg" },
+  "microsoft excel": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg" },
+  "ms excel": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg" },
    
    // MS Powerpoint
-  "powerpoint": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg",
-  "microsoft powerpoint": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg",
-  "ms powerpoint": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg",
-  "ppt": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg",
+  "powerpoint": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg" },
+  "microsoft powerpoint": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg" },
+  "ms powerpoint": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg" },
+  "ppt": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg" },
 
    // Notion (Project Management)
-  "notion": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png",
+  "notion": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" },
 
   // Slack (Team Communication)
-  "slack": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg",
+  "slack": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg" },
 
   // Trello
-  "trello": { category: "Business & Productivity", icon: "https://images.icon-icons.com/2699/PNG/512/trello_logo_icon_167765.png",
+  "trello": { category: "Business & Productivity", icon: "https://images.icon-icons.com/2699/PNG/512/trello_logo_icon_167765.png" },
             
   // Adobe Acrobat / PDF
-  "acrobat": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/6/60/Adobe_Acrobat_Reader_icon_%282020%29.svg",
-  "adobe acrobat": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/6/60/Adobe_Acrobat_Reader_icon_%282020%29.svg",
-  "pdf": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/6/60/Adobe_Acrobat_Reader_icon_%282020%29.svg",             
+  "acrobat": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/6/60/Adobe_Acrobat_Reader_icon_%282020%29.svg" },
+  "adobe acrobat": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/6/60/Adobe_Acrobat_Reader_icon_%282020%29.svg" },
+  "pdf": { category: "Business & Productivity", icon: "https://upload.wikimedia.org/wikipedia/commons/6/60/Adobe_Acrobat_Reader_icon_%282020%29.svg" },             
                 
   // ==========================================
   // SECTION 6: Creative Assets
   // ==========================================
 
   // Canva
-  "canva":  { category: "Creative Assets", icon: "https://img.icons8.com/?size=100&id=iWw83PVcBpLw&format=png&color=000000",
+  "canva":  { category: "Creative Assets", icon: "https://img.icons8.com/?size=100&id=iWw83PVcBpLw&format=png&color=000000" },
 
   // Adobe Bridge (Asset Management)
-  "bridge": { category: "Creative Assets", icon: "https://upload.wikimedia.org/wikipedia/commons/4/44/Adobe_Bridge_CC_2026_icon.svg",
-  "adobe bridge": { category: "Creative Assets", icon: "https://upload.wikimedia.org/wikipedia/commons/4/44/Adobe_Bridge_CC_2026_icon.svg",
+  "bridge": { category: "Creative Assets", icon: "https://upload.wikimedia.org/wikipedia/commons/4/44/Adobe_Bridge_CC_2026_icon.svg" },
+  "adobe bridge": { category: "Creative Assets", icon: "https://upload.wikimedia.org/wikipedia/commons/4/44/Adobe_Bridge_CC_2026_icon.svg" },
 
    // YouTube
-  "youtube": { category: "Creative Assets", icon: "https://upload.wikimedia.org/wikipedia/commons/f/fd/YouTube_full-color_icon_%282024%29.svg",
-  "youtube": { category: "Creative Assets", icon: "https://upload.wikimedia.org/wikipedia/commons/f/fd/YouTube_full-color_icon_%282024%29.svg",
+  "youtube": { category: "Creative Assets", icon: "https://upload.wikimedia.org/wikipedia/commons/f/fd/YouTube_full-color_icon_%282024%29.svg" },
+  "youtube": { category: "Creative Assets", icon: "https://upload.wikimedia.org/wikipedia/commons/f/fd/YouTube_full-color_icon_%282024%29.svg" },
 
   // E-commerce Design
-  "shopify": { category: "Creative Assets", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg",
-  "etsy": { category: "Creative Assets", icon: "https://upload.wikimedia.org/wikipedia/commons/8/89/Etsy_logo.svg",
+  "shopify": { category: "Creative Assets", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" },
+  "etsy": { category: "Creative Assets", icon: "https://upload.wikimedia.org/wikipedia/commons/8/89/Etsy_logo.svg" },
 
   // ==========================================
   // SECTION 7: Generative AI Art & Creative Direction
   // ==========================================
 
  // Midjourney
-  "midjourney": { category: "Generative AI Art & Creative Direction", icon: "https://upload.wikimedia.org/wikipedia/commons/2/24/Midjourney_Emblem.svg",
+  "midjourney": { category: "Generative AI Art & Creative Direction", icon: "https://upload.wikimedia.org/wikipedia/commons/2/24/Midjourney_Emblem.svg" },
 
   // ChatGPT (for Content/Copywriting)
-  "chatgpt": { category: "Generative AI Art & Creative Direction", icon: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
-  "openai": { category: "Generative AI Art & Creative Direction", icon: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
-  "gpt": { category: "Generative AI Art & Creative Direction", icon: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+  "chatgpt": { category: "Generative AI Art & Creative Direction", icon: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" },
+  "openai": { category: "Generative AI Art & Creative Direction", icon: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" },
+  "gpt": { category: "Generative AI Art & Creative Direction", icon: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" },
            
   // Dal-e
   "dall-e": { category: "Generative AI Art & Creative Direction", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5pewHhLfvF5zfKVjzpvYKPA49Pnuc0jWc9A&s" },
@@ -287,16 +287,18 @@ const SOFTWARE_DATABASE: Record<string, { icon: string, category: string }> = {
   //--------------------------
           
   // Unreal Engine (Real-time Video/Environments)
-  "unreal": { category: "3D Creation Tool", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Unreal_Engine_Logo_%28new_typeface%29.svg",
-  "unreal engine": { category: "3D Creation Tool", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Unreal_Engine_Logo_%28new_typeface%29.svg",
-  "ue5": { category: "3D Creation Tool", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Unreal_Engine_Logo_%28new_typeface%29.svg",
+  "unreal": { category: "3D Creation Tool", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Unreal_Engine_Logo_%28new_typeface%29.svg" },
+  "unreal engine": { category: "3D Creation Tool", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Unreal_Engine_Logo_%28new_typeface%29.svg" },
+  "ue5": { category: "3D Creation Tool", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Unreal_Engine_Logo_%28new_typeface%29.svg"},
 
   //Blinder
-  "blender": { category: "3D Creation Tool", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg",
+  "blender": { category: "3D Creation Tool", icon: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg" },
           
   // Maya
-  "maya": { category: "3D Creation Tool", icon: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Icon_of_maya_2023.png",
-   
+  "maya": { category: "3D Creation Tool", icon: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Icon_of_maya_2023.png" },
+         
+
+},
       
 export default function AdminSkillsPage() {
   const [pageHeading, setPageHeading] = useState("");
