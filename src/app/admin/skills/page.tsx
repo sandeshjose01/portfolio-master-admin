@@ -13,7 +13,7 @@ const CATEGORIES = [
   "Business & Productivity",
   "Creative Assets",
   "Generative AI Art & Creative Direction",
-  "3D Creation Tool"
+  "3D Creation Tool",
   "Others"
 ];
 
