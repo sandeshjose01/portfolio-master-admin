@@ -2,16 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Update this in your globals.css */
-.hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none;    /* Firefox */
-}
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;            /* Chrome, Safari, Opera */
+@layer components {
+  .glass-container {
+    @apply bg-white/[0.03] backdrop-blur-3xl border border-white/10 shadow-2xl;
+  }
+  
+  .glass-card {
+    @apply bg-white/[0.05] backdrop-blur-xl border border-white/10 rounded-[2rem] transition-all duration-500 hover:bg-white/[0.08] hover:border-white/20;
+  }
 }
 
-/* Bento Grid Helper */
-.bento-card {
-  @apply bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-8 transition-all duration-500 hover:border-white/20;
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
