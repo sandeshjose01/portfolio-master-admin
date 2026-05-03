@@ -3,132 +3,124 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { db } from '@/lib/firebase'; 
 import { collection, getDocs } from 'firebase/firestore';
-import { motion } from 'framer-motion'; // Using your Framer Motion package
-import { Sparkles, Image as ImageIcon, Play, Plus, LayoutDashboard, Briefcase, RefreshCw, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Sparkles, Image as ImageIcon, Play, Plus, LayoutDashboard, Briefcase, RefreshCw, ExternalLink } from 'lucide-react';
 
 export default function AdminInspirationHub() {
   const [photos, setPhotos] = useState([]);
   const [videos, setVideos] = useState([]);
   const [projectCount, setProjectCount] = useState(0);
-  const [loading, setLoading] = useState(true);
 
-  // API KEYS - Replace with yours
-  const UNSPLASH_KEY = "YOUR_UNSPLASH_KEY";
-  const YOUTUBE_KEY = "YOUR_YOUTUBE_KEY";
+  // PASTE YOUR KEYS HERE
+  const UNSPLASH_KEY = "PASTE_YOUR_UNSPLASH_ACCESS_KEY_HERE";
+  const YOUTUBE_KEY = "PASTE_YOUR_YOUTUBE_API_KEY_HERE";
 
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const photoRes = await fetch(`https://api.unsplash.com/photos/random?query=minimalist-branding,ui-design,business&count=6&client_id=${UNSPLASH_KEY}`);
-      const photoData = await photoRes.json();
-      setPhotos(photoData);
+  useEffect(() => {
+    // Fetch Unsplash
+    fetch(`https://api.unsplash.com/photos/random?query=minimalist-design,branding&count=4&client_id=${UNSPLASH_KEY}`)
+      .then(res => res.json()).then(data => setPhotos(data));
 
-      const videoRes = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_KEY}&channelId=UC-b3c7kxa5vU-bnmaZgv57A&part=snippet,id&order=date&maxResults=3`);
-      const videoData = await videoRes.json();
-      setVideos(videoData.items || []);
+    // Fetch YouTube (The Futur)
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_KEY}&channelId=UC-b3c7kxa5vU-bnmaZgv57A&part=snippet,id&order=date&maxResults=3`)
+      .then(res => res.json()).then(data => setVideos(data.items || []));
 
-      const querySnapshot = await getDocs(collection(db, "projects"));
-      setProjectCount(querySnapshot.size);
-    } catch (e) { console.error(e); }
-    setLoading(false);
-  };
+    // Fetch Firebase Count
+    getDocs(collection(db, "projects")).then(snap => setProjectCount(snap.size));
 
-  useEffect(() => { fetchData(); }, []);
+    // Load Pinterest Widget Script
+    const script = document.createElement("script");
+    script.src = "//assets.pinterest.com/js/pinit.js";
+    script.async = true;
+    script.setAttribute("data-pin-build", "doBuild");
+    document.body.appendChild(script);
+  }, []);
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }}
-      className="min-h-screen bg-[#050505] text-white p-6 lg:p-12"
-    >
-      {/* HEADER */}
-      <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6">
-        <motion.div initial={{ x: -20 }} animate={{ x: 0 }}>
-          <h1 className="text-5xl font-black tracking-tighter bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
-            Admin.<span className="text-blue-500">Center</span>
-          </h1>
-          <p className="text-gray-500 mt-2 font-medium">Where inspiration meets management.</p>
-        </motion.div>
-        
-        <div className="flex items-center gap-4">
-          <button onClick={fetchData} className="p-3 bg-white/5 rounded-full border border-white/10 hover:bg-white/10">
-            <RefreshCw size={20} className={loading ? "animate-spin" : ""} />
-          </button>
-          <Link href="/admin/projects" className="bg-blue-600 hover:bg-blue-500 px-8 py-3 rounded-2xl font-bold flex items-center gap-2 transition-all active:scale-95">
-            <Plus size={18} /> New Work
-          </Link>
+    <div className="min-h-screen bg-[#050505] text-white p-4 lg:p-10">
+      
+      {/* Header */}
+      <header className="flex flex-col md:flex-row justify-between items-start mb-12">
+        <div className="mb-6 md:mb-0">
+          <h1 className="text-4xl font-black tracking-tighter">ADMIN.<span className="text-blue-500">STUDIO</span></h1>
+          <p className="text-gray-500 text-sm mt-1 uppercase tracking-widest font-bold">Creative Command Center</p>
         </div>
+        <Link href="/admin/projects" className="bg-white text-black px-8 py-3 rounded-full font-black hover:bg-blue-500 hover:text-white transition-all flex items-center gap-2">
+          <Plus size={20} /> ADD PROJECT
+        </Link>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-        {/* LEFT: PINTEREST FEED */}
-        <div className="lg:col-span-7">
-          <div className="flex items-center gap-2 mb-8 text-gray-500 uppercase tracking-widest text-[10px] font-bold">
-            <ImageIcon size={14} /> <span>Live Visual Inspiration</span>
-          </div>
-          <div className="columns-2 gap-5 space-y-5">
-            {photos.map((photo: any, index: number) => (
-              <motion.div 
-                key={photo.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="relative group overflow-hidden rounded-3xl border border-white/5 bg-zinc-900"
-              >
-                <img src={photo.urls.regular} className="w-full grayscale hover:grayscale-0 transition-all duration-700" alt="trend" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* RIGHT: DATA & TUTORIALS */}
-        <div className="lg:col-span-5 space-y-10">
-          {/* STATS CARD */}
-          <motion.section 
-            whileHover={{ scale: 1.02 }}
-            className="p-8 rounded-[2.5rem] bg-gradient-to-br from-zinc-900 to-black border border-white/10"
-          >
-            <h2 className="text-lg font-bold flex items-center gap-2 mb-4">
-              <Briefcase size={20} className="text-blue-500" /> Portfolio Pulse
-            </h2>
-            <p className="text-4xl font-black mb-4">{projectCount} <span className="text-sm font-normal text-gray-500 uppercase tracking-widest">Projects Live</span></p>
-            <div className="h-2 bg-white/5 rounded-full overflow-hidden">
-               <motion.div 
-                initial={{ width: 0 }} 
-                animate={{ width: `${(projectCount / 15) * 100}%` }}
-                className="h-full bg-blue-500" 
-               />
-            </div>
-          </motion.section>
-
-          {/* TUTORIALS */}
-          <section>
-             <h2 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-               <Play size={14} className="text-red-500" /> Tutorials for today
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        {/* LEFT COLUMN: LIVE TRENDS */}
+        <div className="lg:col-span-4 space-y-8">
+          <section className="bg-zinc-900/50 p-6 rounded-[2rem] border border-white/5">
+             <h2 className="text-xs font-black uppercase text-gray-500 mb-6 flex items-center gap-2">
+               <ImageIcon size={14} /> Unsplash Trends
              </h2>
-             <div className="space-y-4">
-              {videos.map((vid: any) => (
-                <a key={vid.id.videoId} href={`https://youtube.com/watch?v=${vid.id.videoId}`} target="_blank" className="flex gap-5 p-4 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
-                  <img src={vid.snippet.thumbnails.medium.url} className="w-24 h-16 rounded-xl object-cover" alt="thumb" />
-                  <div className="flex flex-col justify-center">
-                    <h3 className="text-xs font-bold leading-relaxed line-clamp-2">{vid.snippet.title}</h3>
-                    <p className="text-[9px] text-gray-500 mt-1 uppercase font-bold tracking-tighter">Watch on YouTube</p>
-                  </div>
-                </a>
-              ))}
+             <div className="grid grid-cols-1 gap-4">
+               {photos.map((p: any) => (
+                 <img key={p.id} src={p.urls.small} className="rounded-2xl grayscale hover:grayscale-0 transition-all duration-500 w-full object-cover h-40" />
+               ))}
              </div>
           </section>
 
-          {/* QUICK LINKS */}
-          <div className="grid grid-cols-2 gap-4 pt-4">
-            {['Home', 'Skills', 'Experience', 'About'].map((item) => (
-              <Link key={item} href={`/admin/${item.toLowerCase()}`} className="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500 text-center text-xs font-bold transition-all uppercase tracking-widest">
-                {item}
-              </Link>
-            ))}
-          </div>
+          {/* QUICK LINKS FOR BEHANCE/DRIBBBLE */}
+          <section className="space-y-3">
+             <h2 className="text-xs font-black uppercase text-gray-500 mb-4 px-2 tracking-widest">Industry Portals</h2>
+             <a href="https://www.behance.net" target="_blank" className="flex items-center justify-between p-4 bg-zinc-900 rounded-2xl hover:bg-[#0057ff] transition-all group">
+               <span className="font-bold">Behance</span>
+               <ExternalLink size={16} className="opacity-0 group-hover:opacity-100" />
+             </a>
+             <a href="https://dribbble.com" target="_blank" className="flex items-center justify-between p-4 bg-zinc-900 rounded-2xl hover:bg-[#ea4c89] transition-all group">
+               <span className="font-bold">Dribbble</span>
+               <ExternalLink size={16} className="opacity-0 group-hover:opacity-100" />
+             </a>
+          </section>
         </div>
+
+        {/* MIDDLE COLUMN: YOUR PINTEREST MOODBOARD */}
+        <div className="lg:col-span-5">
+           <section className="bg-white/5 p-6 rounded-[2rem] border border-white/10 h-full overflow-hidden">
+              <h2 className="text-xs font-black uppercase text-red-500 mb-6 flex items-center gap-2">
+                <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" /> Your Pinterest Moodboard
+              </h2>
+              {/* CHANGE THE URL BELOW TO YOUR ACTUAL PINTEREST BOARD URL */}
+              <div className="w-full flex justify-center">
+                <a 
+                  data-pin-do="embedBoard" 
+                  data-pin-board-width="400" 
+                  data-pin-scale-height="600" 
+                  data-pin-scale-width="80" 
+                  href="https://www.pinterest.com/pinterest/official-news/" 
+                ></a>
+              </div>
+           </section>
+        </div>
+
+        {/* RIGHT COLUMN: TUTORIALS & STATS */}
+        <div className="lg:col-span-3 space-y-8">
+           <section className="p-6 bg-blue-600 rounded-[2rem] text-white">
+              <h2 className="font-black text-2xl tracking-tighter italic">Portfolio Live: {projectCount}</h2>
+              <p className="text-sm mt-2 opacity-80">Next Goal: 10 Projects</p>
+              <div className="mt-4 h-1 bg-white/20 rounded-full">
+                <div className="h-full bg-white rounded-full" style={{width: '60%'}}></div>
+              </div>
+           </section>
+
+           <section>
+              <h2 className="text-xs font-black uppercase text-gray-500 mb-6">Learning Hub</h2>
+              <div className="space-y-4">
+                {videos.map((v: any) => (
+                  <a key={v.id.videoId} href={`https://youtube.com/watch?v=${v.id.videoId}`} target="_blank" className="block group">
+                    <img src={v.snippet.thumbnails.medium.url} className="rounded-xl mb-2 w-full opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <h3 className="text-[10px] font-bold uppercase leading-tight">{v.snippet.title}</h3>
+                  </a>
+                ))}
+              </div>
+           </section>
+        </div>
+
       </div>
-    </motion.div>
+    </div>
   );
 }
