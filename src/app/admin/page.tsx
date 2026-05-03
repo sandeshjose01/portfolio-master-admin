@@ -15,36 +15,74 @@ export default function AdminInspirationHub() {
   const UNSPLASH_KEY = process.env.NEXT_PUBLIC_UNSPLASH_KEY;
   const YOUTUBE_KEY = process.env.NEXT_PUBLIC_YOUTUBE_KEY;
 
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      // Fetch Photos
-      const photoRes = await fetch(`https://api.unsplash.com/photos/random?query=minimalist-design,branding&count=4&client_id=${UNSPLASH_KEY}`);
-      const photoData = await photoRes.json();
-      if (Array.isArray(photoData)) setPhotos(photoData);
+// Inside your AdminInspirationHub component...
 
-      // Fetch YouTube
-      const videoRes = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_KEY}&channelId=UC-b3c7kxa5vU-bnmaZgv57A&part=snippet,id&order=date&maxResults=3`);
-      const videoData = await videoRes.json();
-      setVideos(videoData.items || []);
+const fetchData = async (forceRefresh = false) => {
+  const CACHE_KEY = "admin_inspiration_cache";
+  const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
-      // Fetch Firebase
-      const snap = await getDocs(collection(db, "projects"));
-      setProjectCount(snap.size);
-    } catch (e) { console.error("Fetch Error:", e); }
-    setLoading(false);
-  };
+  // 1. Check for Cached Data first (unless we click the refresh button)
+  const cachedData = localStorage.getItem(CACHE_KEY);
+  if (cachedData && !forceRefresh) {
+    const parsedCache = JSON.parse(cachedData);
+    const isExpired = Date.now() - parsedCache.timestamp > TWENTY_FOUR_HOURS;
 
-  useEffect(() => { 
-    fetchData(); 
-    // Pinterest build trigger
-    const script = document.createElement("script");
-    script.src = "//assets.pinterest.com/js/pinit.js";
-    script.async = true;
-    script.setAttribute("data-pin-build", "doBuild");
-    document.body.appendChild(script);
-  }, []);
+    if (!isExpired) {
+      console.log("Using cached inspiration data...");
+      setPhotos(parsedCache.photos);
+      setVideos(parsedCache.videos);
+      setLoading(false);
+      return; // Stop here, no need to call APIs
+    }
+  }
 
+  // 2. If no cache or it's expired, Fetch Fresh Data
+  console.log("Fetching fresh inspiration from APIs...");
+  setLoading(true);
+  try {
+    // Fetch Unsplash
+    const photoRes = await fetch(`https://api.unsplash.com/photos/random?query=minimalist-design,branding&count=4&client_id=${UNSPLASH_KEY}`);
+    const photoData = await photoRes.json();
+
+    // Fetch YouTube
+    const videoRes = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_KEY}&channelId=UC-b3c7kxa5vU-bnmaZgv57A&part=snippet,id&order=date&maxResults=3`);
+    const videoData = await videoRes.json();
+
+    // 3. Update State
+    const freshPhotos = Array.isArray(photoData) ? photoData : [];
+    const freshVideos = videoData.items || [];
+    
+    setPhotos(freshPhotos);
+    setVideos(freshVideos);
+
+    // 4. Save to Local Storage for next time
+    const cacheObject = {
+      timestamp: Date.now(),
+      photos: freshPhotos,
+      videos: freshVideos
+    };
+    localStorage.setItem(CACHE_KEY, JSON.stringify(cacheObject));
+
+  } catch (e) {
+    console.error("API Error:", e);
+  }
+  setLoading(false);
+};
+
+// Update the useEffect to call fetchData
+useEffect(() => {
+  fetchData(); // This will use cache if available
+
+  // Also fetch the project count from Firebase every time (Firebase is free and fast)
+  getDocs(collection(db, "projects")).then(snap => setProjectCount(snap.size));
+
+  // Pinterest build trigger
+  const script = document.createElement("script");
+  script.src = "//assets.pinterest.com/js/pinit.js";
+  script.async = true;
+  script.setAttribute("data-pin-build", "doBuild");
+  document.body.appendChild(script);
+}, []);
   return (
     <div className="min-h-screen bg-[#020202] text-white p-4 lg:p-8">
       
