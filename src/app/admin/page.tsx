@@ -10,10 +10,27 @@ export default function InspirationHub() {
   /* -----------------------------------------------------------
      SECTION 1: CONFIGURATION (Edit your Links & Keywords here)
      ----------------------------------------------------------- */
-  const PINTEREST_BOARD_URL = "https://in.pinterest.com/search/pins/?q=Y2K%20Design&rs=typed" "";
-  const YOUTUBE_CHANNEL_ID = "UC-b3c7kxa5vU-bnmaZgv57A", "Skt0UEpMb0lCcVdxNG84VERMcE", "UCWNfZKYNnk9-JEPeoLMi-2w", "UC5W1k_sWDPsfjTZnTbb8qwg"; // The Futur, SatoruGraphic, Design Sala
+  
+  // Fix 1: Removed the extra "" at the end
+  const PINTEREST_BOARD_URL = "https://in.pinterest.com/search/pins/?q=Y2K%20Design&rs=typed";
+
+  // Fix 2: Turned your many IDs into a proper Array []
+  const YOUTUBE_CHANNELS = [
+    "UC-b3c7kxa5vU-bnmaZgv57A", // The Futur
+    "UCWNFzKYNnk9-JEPeoLMI-2w", // Example 2
+    "UCP-78oclyS9-j9H2z8S9p3w"  // Flux Academy
+    "UC-b3c7kxa5vU-bnmaZgv57A", //
+    "Skt0UEpMb0lCcVdxNG84VERMcE", 
+    "UCWNfZKYNnk9-JEPeoLMi-2w", 
+    "UC5W1k_sWDPsfjTZnTbb8qwg" //Design Sala
+  ];
+
+  // This line picks one random channel from your list above
+  const YOUTUBE_CHANNEL_ID = YOUTUBE_CHANNELS[Math.floor(Math.random() * YOUTUBE_CHANNELS.length)];
+
   const PHOTO_KEYWORDS = "Y2K Design,logo-design,mockup,branding,minimalist";
-  const SPOTIFY_PLAYLIST_URL = "https://open.spotify.com/playlist/37i9dQZF1DX8Uebhn9wzrS"; // Lofi Focus
+  const SPOTIFY_PLAYLIST_URL = "https://open.spotify.com/playlist/37i9dQZF1DX8Uebhn9wzrS";
+ 
 
   /* -----------------------------------------------------------
      SECTION 2: API KEYS (Pulled from your .env / Vercel)
