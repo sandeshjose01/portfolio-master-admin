@@ -24,10 +24,7 @@ export default function InspirationHub() {
 
   // List of Normal Spotify Links (Array format)
   const SPOTIFY_LINKS = [
-    "https://open.spotify.com/playlist/37i9dQZF1DX8Uebhn9wzrS",
-    "https://open.spotify.com/playlist/37i9dQZF1DX8Ueb990u60a",
-    "https://open.spotify.com/playlist/37i9dQZF1DX6VFeBsS201p",
-    "https://open.spotify.com/playlist/37i9dQZF1DWWQRwui0Ex7X"
+    "https://open.spotify.com/playlist/37i9dQZF1DX8Uebhn9wzrS"
   ];
 
   const PHOTO_KEYWORDS = "Y2K Design,logo-design,mockup,branding,minimalist";
