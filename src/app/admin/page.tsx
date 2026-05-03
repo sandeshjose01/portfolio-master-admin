@@ -10,10 +10,10 @@ export default function AdminInspirationHub() {
   const [photos, setPhotos] = useState([]);
   const [videos, setVideos] = useState([]);
   const [projectCount, setProjectCount] = useState(0);
+  // Inside your AdminInspirationHub component
+  const UNSPLASH_KEY = process.env.NEXT_PUBLIC_UNSPLASH_KEY;
+  const YOUTUBE_KEY = process.env.NEXT_PUBLIC_YOUTUBE_KEY;
 
-  // PASTE YOUR KEYS HERE
-  const UNSPLASH_KEY = "PASTE_YOUR_UNSPLASH_ACCESS_KEY_HERE";
-  const YOUTUBE_KEY = "PASTE_YOUR_YOUTUBE_API_KEY_HERE";
 
   useEffect(() => {
     // Fetch Unsplash
