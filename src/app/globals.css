@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.hide-scrollbar::-webkit-scrollbar { display: none; }
-body { scroll-behavior: smooth; }
+/* Update this in your globals.css */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;            /* Chrome, Safari, Opera */
+}
 
 /* Bento Grid Helper */
 .bento-card {
