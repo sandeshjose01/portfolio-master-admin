@@ -13,7 +13,7 @@ export default function InspirationHub() {
   const PINTEREST_BOARD_URL = "https://in.pinterest.com/search/pins/?q=Y2K%20Design&rs=typed" "";
   const YOUTUBE_CHANNEL_ID = "UC-b3c7kxa5vU-bnmaZgv57A", "Skt0UEpMb0lCcVdxNG84VERMcE", "UCWNfZKYNnk9-JEPeoLMi-2w", "UC5W1k_sWDPsfjTZnTbb8qwg"; // The Futur, SatoruGraphic, Design Sala
   const PHOTO_KEYWORDS = "Y2K Design,logo-design,mockup,branding,minimalist";
-  const SPOTIFY_PLAYLIST_URL = "https://open.spotify.com/embed/playlist/37i9dQZF1DX8Ueb990u60a"; // Lofi Focus
+  const SPOTIFY_PLAYLIST_URL = "https://open.spotify.com/playlist/37i9dQZF1DX8Uebhn9wzrS"; // Lofi Focus
 
   /* -----------------------------------------------------------
      SECTION 2: API KEYS (Pulled from your .env / Vercel)
